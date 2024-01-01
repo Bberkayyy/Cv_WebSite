@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.Dtos.RequestDtos;
+using EntityLayer.Dtos.ResponseDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,35 +13,41 @@ namespace BusinessLayer.Concrete;
 
 public class SkillService : ISkillService
 {
-	private readonly ISkillDal _skillDal;
+    private readonly ISkillDal _SkillDal;
 
-	public SkillService(ISkillDal skillDal)
-	{
-		_skillDal = skillDal;
-	}
+    public SkillService(ISkillDal SkillDal)
+    {
+        _SkillDal = SkillDal;
+    }
 
-	public void Add(Skill entity)
-	{
-		_skillDal.Add(entity);
-	}
+    public void Add(SkillCreateRequestDto SkillCreateRequest)
+    {
+        var value = SkillCreateRequestDto.ConverToEntity(SkillCreateRequest);
+        _SkillDal.Add(value);
+    }
 
-	public List<Skill> GetAll()
-	{
-		return _skillDal.GetAll();
-	}
+    public List<SkillResponseDto> GetAll()
+    {
+        var values = _SkillDal.GetAll();
+        return values.Select(x => SkillResponseDto.ConvertToResponse(x)).ToList();
 
-	public Skill GetById(int id)
-	{
-		return _skillDal.GetById(id);
-	}
+    }
 
-	public void Remove(Skill entity)
-	{
-		_skillDal.Remove(entity);
-	}
+    public SkillResponseDto GetById(int id)
+    {
+        var value = _SkillDal.GetById(id);
+        return SkillResponseDto.ConvertToResponse(value);
+    }
 
-	public void Update(Skill entity)
-	{
-		_skillDal.Update(entity);
-	}
+    public void Remove(int id)
+    {
+        var value = _SkillDal.GetById(id);
+        _SkillDal.Remove(value);
+    }
+
+    public void Update(SkillUpdateRequestDto SkillUpdateRequest)
+    {
+        var value = SkillUpdateRequestDto.ConverToEntity(SkillUpdateRequest);
+        _SkillDal.Update(value);
+    }
 }

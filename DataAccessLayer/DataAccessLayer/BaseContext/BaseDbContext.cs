@@ -10,11 +10,16 @@ namespace DataAccessLayer.BaseContext;
 
 public class BaseDbContext : DbContext
 {
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public BaseDbContext(DbContextOptions<BaseDbContext> opt) : base(opt)
     {
-        optionsBuilder.UseSqlServer("server=(localdb)\\MSSQLLocalDB;database = Cv_Db; integrated security = true");
 
     }
+
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    optionsBuilder.UseSqlServer("server=(localdb)\\MSSQLLocalDB;database = Cv_Db; integrated security = true");
+
+    //}
     public DbSet<About> Abouts { get; set; }
     public DbSet<Contact> Contacts { get; set; }
     public DbSet<Experiance> Experiances { get; set; }

@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.Dtos.RequestDtos;
+using EntityLayer.Dtos.ResponseDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,35 +13,41 @@ namespace BusinessLayer.Concrete;
 
 public class PortfolioService : IPortfolioService
 {
-	private readonly IPortfolioDal _portfolioDal;
+    private readonly IPortfolioDal _PortfolioDal;
 
-	public PortfolioService(IPortfolioDal portfolioDal)
-	{
-		_portfolioDal = portfolioDal;
-	}
+    public PortfolioService(IPortfolioDal PortfolioDal)
+    {
+        _PortfolioDal = PortfolioDal;
+    }
 
-	public void Add(Portfolio entity)
-	{
-		_portfolioDal.Add(entity);
-	}
+    public void Add(PortfolioCreateRequestDto PortfolioCreateRequest)
+    {
+        var value = PortfolioCreateRequestDto.ConverToEntity(PortfolioCreateRequest);
+        _PortfolioDal.Add(value);
+    }
 
-	public List<Portfolio> GetAll()
-	{
-		return _portfolioDal.GetAll();
-	}
+    public List<PortfolioResponseDto> GetAll()
+    {
+        var values = _PortfolioDal.GetAll();
+        return values.Select(x => PortfolioResponseDto.ConvertToResponse(x)).ToList();
 
-	public Portfolio GetById(int id)
-	{
-		return _portfolioDal.GetById(id);
-	}
+    }
 
-	public void Remove(Portfolio entity)
-	{
-		_portfolioDal.Remove(entity);
-	}
+    public PortfolioResponseDto GetById(int id)
+    {
+        var value = _PortfolioDal.GetById(id);
+        return PortfolioResponseDto.ConvertToResponse(value);
+    }
 
-	public void Update(Portfolio entity)
-	{
-		_portfolioDal.Update(entity);
-	}
+    public void Remove(int id)
+    {
+        var value = _PortfolioDal.GetById(id);
+        _PortfolioDal.Remove(value);
+    }
+
+    public void Update(PortfolioUpdateRequestDto PortfolioUpdateRequest)
+    {
+        var value = PortfolioUpdateRequestDto.ConverToEntity(PortfolioUpdateRequest);
+        _PortfolioDal.Update(value);
+    }
 }

@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.Dtos.RequestDtos;
+using EntityLayer.Dtos.ResponseDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,35 +13,41 @@ namespace BusinessLayer.Concrete;
 
 public class ContactService : IContactService
 {
-	private readonly IContactDal _contactDal;
+    private readonly IContactDal _ContactDal;
 
-	public ContactService(IContactDal contactDal)
-	{
-		_contactDal = contactDal;
-	}
+    public ContactService(IContactDal ContactDal)
+    {
+        _ContactDal = ContactDal;
+    }
 
-	public void Add(Contact entity)
-	{
-		_contactDal.Add(entity);
-	}
+    public void Add(ContactCreateRequestDto ContactCreateRequest)
+    {
+        var value = ContactCreateRequestDto.ConverToEntity(ContactCreateRequest);
+        _ContactDal.Add(value);
+    }
 
-	public List<Contact> GetAll()
-	{
-		return _contactDal.GetAll();
-	}
+    public List<ContactResponseDto> GetAll()
+    {
+        var values = _ContactDal.GetAll();
+        return values.Select(x => ContactResponseDto.ConvertToResponse(x)).ToList();
 
-	public Contact GetById(int id)
-	{
-		return _contactDal.GetById(id);
-	}
+    }
 
-	public void Remove(Contact entity)
-	{
-		_contactDal.Remove(entity);
-	}
+    public ContactResponseDto GetById(int id)
+    {
+        var value = _ContactDal.GetById(id);
+        return ContactResponseDto.ConvertToResponse(value);
+    }
 
-	public void Update(Contact entity)
-	{
-		_contactDal.Update(entity);
-	}
+    public void Remove(int id)
+    {
+        var value = _ContactDal.GetById(id);
+        _ContactDal.Remove(value);
+    }
+
+    public void Update(ContactUpdateRequestDto ContactUpdateRequest)
+    {
+        var value = ContactUpdateRequestDto.ConverToEntity(ContactUpdateRequest);
+        _ContactDal.Update(value);
+    }
 }

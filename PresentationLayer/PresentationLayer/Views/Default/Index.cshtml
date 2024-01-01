@@ -1,0 +1,101 @@
+﻿@model CreateMessageDto
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!-- upto 2 directory depth-->
+<html lang="en-US">
+
+@await Component.InvokeAsync("_HeaderComponentPartial")
+
+<body id="top">
+
+    @await Component.InvokeAsync("_NavbarComponentPartial")
+
+    <div class="page-content">
+        <div id="content">
+            @await Component.InvokeAsync("_FeatureComponentPartial")
+
+            @await Component.InvokeAsync("_AboutComponentPartial")
+
+            @await Component.InvokeAsync("_ServiceComponentPartial")
+
+            @await Component.InvokeAsync("_SkillComponentPartial")
+
+            @await Component.InvokeAsync("_PortfolioComponentPartial")
+
+            @await Component.InvokeAsync("_ExperianceComponentPartial")
+
+            @await Component.InvokeAsync("_TestimonialComponentPartial")
+
+
+
+
+            <div class="section px-2 px-lg-4 pb-4 pt-5 mb-5" id="contact">
+                <div class="container-narrow">
+                    <div class="text-center mb-5">
+                        <h2 class="marker marker-center">İletişim</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="bg-light my-2 p-3 pt-2">
+                                <form action="/Default/Index/" method="post">
+                                    <div class="form-group my-2">
+                                        <label for="name" class="form-label fw-bolder">Adınız</label>
+                                        <input class="form-control" type="text" id="name" asp-for="Name" required>
+                                    </div>
+                                    <div class="form-group my-2">
+                                        <label for="email" class="form-label fw-bolder">Mail Adresiniz</label>
+                                        <input class="form-control" type="email" id="email" asp-for="Mail" required>
+                                    </div>
+                                    <div class="form-group my-2">
+                                        <label for="message" class="form-label fw-bolder">Mesajınız</label>
+                                        <textarea class="form-control" style="resize: none;" id="message" asp-for="Content" rows="4" required></textarea>
+                                    </div>
+                                    <button class="btn btn-primary mt-2" type="submit">Gönder</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        @await Component.InvokeAsync("_ContactComponentPartial")
+
+                    </div>
+                </div>
+            </div>
+            <footer class="pt-4 pb-4 text-center bg-light">
+                <div class="container">
+                    <div class="my-3">
+                        <div class="h4">Walter Patterson</div>
+                        <p>Web Developer & Mobile Application Developer</p>
+                        <div class="social-nav">
+                            <nav role="navigation">
+                                <ul class="nav justify-content-center">
+                                    <li class="nav-item"><a class="nav-link" href="https://twitter.com/templateflip" title="Twitter"><i class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/templateflip" title="Facebook"><i class="fab fa-facebook"></i><span class="menu-title sr-only">Facebook</span></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/templateflip" title="Instagram"><i class="fab fa-instagram"></i><span class="menu-title sr-only">Instagram</span></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="menu-title sr-only">LinkedIn</span></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="https://www.behance.net/templateflip" title="Behance"><i class="fab fa-behance"></i><span class="menu-title sr-only">Behance</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="text-small text-secondary">
+                        <div class="mb-1">&copy; Super Folio. All rights reserved.</div>
+                        <div>
+                            <!-- Make sure to buy a license for the template before removing the line below. Buy license on https://templateflip.com/ -->Design - <a href="https://templateflip.com/" target="_blank">TemplateFlip</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div id="scrolltop"><a class="btn btn-secondary" href="#top"><span class="icon"><i class="fas fa-angle-up fa-x"></i></span></a></div>
+    <script src="~/Template/scripts/imagesloaded.pkgd.min.js?ver=1.2.0"></script>
+    <script src="~/Template/scripts/masonry.pkgd.min.js?ver=1.2.0"></script>
+    <script src="~/Template/scripts/BigPicture.min.js?ver=1.2.0"></script>
+    <script src="~/Template/scripts/purecounter.min.js?ver=1.2.0"></script>
+    <script src="~/Template/scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
+    <script src="~/Template/scripts/aos.min.js?ver=1.2.0"></script>
+    <script src="~/Template/scripts/main.js?ver=1.2.0"></script>
+</body>
+</html>

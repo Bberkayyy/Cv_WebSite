@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.Dtos.RequestDtos;
+using EntityLayer.Dtos.ResponseDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,35 +13,41 @@ namespace BusinessLayer.Concrete;
 
 public class SocialMediaService : ISocialMediaService
 {
-	private readonly ISocialMediaDal _socialMediaDal;
+    private readonly ISocialMediaDal _SocialMediaDal;
 
-	public SocialMediaService(ISocialMediaDal socialMediaDal)
-	{
-		_socialMediaDal = socialMediaDal;
-	}
+    public SocialMediaService(ISocialMediaDal SocialMediaDal)
+    {
+        _SocialMediaDal = SocialMediaDal;
+    }
 
-	public void Add(SocialMedia entity)
-	{
-		_socialMediaDal.Add(entity);
-	}
+    public void Add(SocialMediaCreateRequestDto SocialMediaCreateRequest)
+    {
+        var value = SocialMediaCreateRequestDto.ConverToEntity(SocialMediaCreateRequest);
+        _SocialMediaDal.Add(value);
+    }
 
-	public List<SocialMedia> GetAll()
-	{
-		return _socialMediaDal.GetAll();
-	}
+    public List<SocialMediaResponseDto> GetAll()
+    {
+        var values = _SocialMediaDal.GetAll();
+        return values.Select(x => SocialMediaResponseDto.ConvertToResponse(x)).ToList();
 
-	public SocialMedia GetById(int id)
-	{
-		return _socialMediaDal.GetById(id);
-	}
+    }
 
-	public void Remove(SocialMedia entity)
-	{
-		_socialMediaDal.Remove(entity);
-	}
+    public SocialMediaResponseDto GetById(int id)
+    {
+        var value = _SocialMediaDal.GetById(id);
+        return SocialMediaResponseDto.ConvertToResponse(value);
+    }
 
-	public void Update(SocialMedia entity)
-	{
-		_socialMediaDal.Update(entity);
-	}
+    public void Remove(int id)
+    {
+        var value = _SocialMediaDal.GetById(id);
+        _SocialMediaDal.Remove(value);
+    }
+
+    public void Update(SocialMediaUpdateRequestDto SocialMediaUpdateRequest)
+    {
+        var value = SocialMediaUpdateRequestDto.ConverToEntity(SocialMediaUpdateRequest);
+        _SocialMediaDal.Update(value);
+    }
 }

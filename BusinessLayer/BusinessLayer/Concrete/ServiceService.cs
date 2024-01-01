@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.Dtos.RequestDtos;
+using EntityLayer.Dtos.ResponseDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,35 +13,41 @@ namespace BusinessLayer.Concrete;
 
 public class ServiceService : IServiceService
 {
-	private readonly IServiceDal _serviceDal;
+    private readonly IServiceDal _ServiceDal;
 
-	public ServiceService(IServiceDal serviceDal)
-	{
-		_serviceDal = serviceDal;
-	}
+    public ServiceService(IServiceDal ServiceDal)
+    {
+        _ServiceDal = ServiceDal;
+    }
 
-	public void Add(Service entity)
-	{
-		_serviceDal.Add(entity);
-	}
+    public void Add(ServiceCreateRequestDto ServiceCreateRequest)
+    {
+        var value = ServiceCreateRequestDto.ConverToEntity(ServiceCreateRequest);
+        _ServiceDal.Add(value);
+    }
 
-	public List<Service> GetAll()
-	{
-		return _serviceDal.GetAll();
-	}
+    public List<ServiceResponseDto> GetAll()
+    {
+        var values = _ServiceDal.GetAll();
+        return values.Select(x => ServiceResponseDto.ConvertToResponse(x)).ToList();
 
-	public Service GetById(int id)
-	{
-		return _serviceDal.GetById(id);
-	}
+    }
 
-	public void Remove(Service entity)
-	{
-		_serviceDal.Remove(entity);
-	}
+    public ServiceResponseDto GetById(int id)
+    {
+        var value = _ServiceDal.GetById(id);
+        return ServiceResponseDto.ConvertToResponse(value);
+    }
 
-	public void Update(Service entity)
-	{
-		_serviceDal.Update(entity);
-	}
+    public void Remove(int id)
+    {
+        var value = _ServiceDal.GetById(id);
+        _ServiceDal.Remove(value);
+    }
+
+    public void Update(ServiceUpdateRequestDto ServiceUpdateRequest)
+    {
+        var value = ServiceUpdateRequestDto.ConverToEntity(ServiceUpdateRequest);
+        _ServiceDal.Update(value);
+    }
 }

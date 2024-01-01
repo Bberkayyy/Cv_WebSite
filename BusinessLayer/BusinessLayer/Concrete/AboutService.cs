@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.Dtos.RequestDtos;
+using EntityLayer.Dtos.ResponseDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,35 +13,41 @@ namespace BusinessLayer.Concrete;
 
 public class AboutService : IAboutService
 {
-	private readonly IAboutDal _aboutDal;
+    private readonly IAboutDal _aboutDal;
 
-	public AboutService(IAboutDal aboutDal)
-	{
-		_aboutDal = aboutDal;
-	}
+    public AboutService(IAboutDal aboutDal)
+    {
+        _aboutDal = aboutDal;
+    }
 
-	public void Add(About entity)
-	{
-		_aboutDal.Add(entity);
-	}
+    public void Add(AboutCreateRequestDto aboutCreateRequest)
+    {
+        var value = AboutCreateRequestDto.ConverToEntity(aboutCreateRequest);
+        _aboutDal.Add(value);
+    }
 
-	public List<About> GetAll()
-	{
-		return _aboutDal.GetAll();
-	}
+    public List<AboutResponseDto> GetAll()
+    {
+        var values = _aboutDal.GetAll();
+        return values.Select(x => AboutResponseDto.ConvertToResponse(x)).ToList();
 
-	public About GetById(int id)
-	{
-		return _aboutDal.GetById(id);
-	}
+    }
 
-	public void Remove(About entity)
-	{
-		_aboutDal.Remove(entity);
-	}
+    public AboutResponseDto GetById(int id)
+    {
+        var value = _aboutDal.GetById(id);
+        return AboutResponseDto.ConvertToResponse(value);
+    }
 
-	public void Update(About entity)
-	{
-		_aboutDal.Update(entity);
-	}
+    public void Remove(int id)
+    {
+        var value = _aboutDal.GetById(id);
+        _aboutDal.Remove(value);
+    }
+
+    public void Update(AboutUpdateRequestDto aboutUpdateRequest)
+    {
+        var value = AboutUpdateRequestDto.ConverToEntity(aboutUpdateRequest);
+        _aboutDal.Update(value);
+    }
 }

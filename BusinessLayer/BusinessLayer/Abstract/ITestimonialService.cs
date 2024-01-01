@@ -1,4 +1,6 @@
 ﻿using EntityLayer.Concrete;
+using EntityLayer.Dtos.RequestDtos;
+using EntityLayer.Dtos.ResponseDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +9,11 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract;
 
-public interface ITestimonialService : IGenericService<Testimonial>
+public interface ITestimonialService
 {
+    void Add(TestimonialCreateRequestDto TestimonialCreateRequest);
+    void Remove(int id);
+    void Update(TestimonialUpdateRequestDto TestimonialUpdateRequest);
+    List<TestimonialResponseDto> GetAll();
+    TestimonialResponseDto GetById(int id);
 }
