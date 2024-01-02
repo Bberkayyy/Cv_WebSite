@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace EntityLayer.Dtos.RequestDtos;
 
 public record ExperianceUpdateRequestDto(int Id,
-                                         string Name,
+                                         string CompanyName,
                                          string Date,
-                                         string ImageUrl,
+                                         string TaskName,
                                          string Description)
 {
     public static Experiance ConverToEntity(ExperianceUpdateRequestDto request)
@@ -18,9 +18,9 @@ public record ExperianceUpdateRequestDto(int Id,
         return new Experiance
         {
             Id = request.Id,
-            Name = request.Name,
+            CompanyName = request.CompanyName,
             Date = request.Date,
-            ImageUrl = request.ImageUrl,
+            TaskName = request.TaskName,
             Description = request.Description,
         };
     }

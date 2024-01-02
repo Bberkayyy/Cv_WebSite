@@ -9,8 +9,8 @@ namespace EntityLayer.Concrete;
 public class Experiance
 {
     public int Id { get; set; }
-    public string Name { get; set; }
+    public string CompanyName { get; set; }
     public string Date { get; set; }
-    public string ImageUrl { get; set; }
+    public string TaskName { get; set; }
     public string Description { get; set; }
 }

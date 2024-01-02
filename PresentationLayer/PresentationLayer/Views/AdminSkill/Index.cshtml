@@ -8,7 +8,6 @@
 <div class="card-header border-0">
     <h3 class="mb-0">Yeteneklerim Tablosu</h3>
 </div>
-<!-- Light table -->
 @if (Model.Count() > 0)
 {
     <div class="table-responsive">
@@ -56,5 +55,5 @@
 else
 {
     <p class="bg-danger text-white p-4 text-center card-body table-responsive">Yetenek bilgisi bulunamadı. Yetenek bilgisi eklemek için "Yeni Yetenek Ekle" butonuna tıklayınız.</p>
-    <a href="#" class="btn btn-outline-primary">Yeni Yetenek Ekle</a>
+    <a href="/AdminSkill/CreateSkill" class="btn btn-outline-primary">Yeni Yetenek Ekle</a>
 }

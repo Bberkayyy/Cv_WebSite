@@ -1,6 +1,6 @@
-﻿@model UpdateSkillDto
+﻿@model UpdateServiceDto
 @{
-    ViewData["Title"] = "UpdateSkill";
+    ViewData["Title"] = "UpdateService";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
@@ -9,7 +9,7 @@
         <div class="card-header">
             <div class="row align-items-center">
                 <div class="col-12">
-                    <h3 class="mb-0">Yetenek Güncelleme Sayfası </h3>
+                    <h3 class="mb-0">Yeni Hizmet Ekleme Sayfası </h3>
                 </div>
             </div>
         </div>
@@ -20,19 +20,23 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="form-group">
-                                <label class="form-control-label" for="input-Title">Title</label>
-                                <input class="form-control" type="text" id="input-Title" asp-for="Title" placeholder="Yetenek giriniz.">
+                                <label class="form-control-label" for="input-Title">Hizmet Adı</label>
+                                <input class="form-control" type="text" id="input-Title" asp-for="Title" placeholder="Hizmet adı giriniz.">
                             </div>
                             <div class="form-group">
-                                <label class="form-control-label" for="input-Value">Value</label>
-                                <input class="form-control" type="text" id="input-Value" asp-for="Value" placeholder="Değer giriniz.">
+                                <label class="form-control-label" for="input-ImageUrl">Resim Linki</label>
+                                <input class="form-control" type="text" id="input-ImageUrl" asp-for="ImageUrl" placeholder="Resim linki giriniz.">
                             </div>
                         </div>
                     </div>
                 </div>
-                <a href="/AdminSkill/Index" class="btn btn-secondary mt-2">Geri Dön</a>
+                <a href="/AdminService/Index" class="btn btn-secondary mt-2">Geri Dön</a>
                 <button class="btn btn-primary mt-2" type="submit">Güncelle</button>
             </form>
         </div>
     </div>
 </div>
+
+
+
+

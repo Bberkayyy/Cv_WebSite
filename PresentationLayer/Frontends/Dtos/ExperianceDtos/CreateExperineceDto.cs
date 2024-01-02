@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dtos.ExperianceDtos;
 
-public class ResultExperianceDto
+public class CreateExperineceDto
 {
-    public int Id { get; set; }
     public string CompanyName { get; set; }
     public string Date { get; set; }
     public string TaskName { get; set; }

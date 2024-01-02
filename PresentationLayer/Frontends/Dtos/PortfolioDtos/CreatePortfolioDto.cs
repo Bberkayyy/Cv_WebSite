@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dtos.PortfolioDtos;
 
-public class ResultPortfolioDto
+public class CreatePortfolioDto
 {
-    public int Id { get; set; }
     public string Platform { get; set; }
     public string ProjectName { get; set; }
     public string ProjectUrl { get; set; }

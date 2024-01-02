@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 namespace EntityLayer.Dtos.ResponseDtos;
 
 public record ExperianceResponseDto(int Id,
-                                     string Name,
+                                     string CompanyName,
                                      string Date,
-                                     string ImageUrl,
+                                     string TaskName,
                                      string Description)
 {
     public static ExperianceResponseDto ConvertToResponse(Experiance experiance)
     {
         return new ExperianceResponseDto(
             Id: experiance.Id,
-            Name: experiance.Name,
+            CompanyName: experiance.CompanyName,
             Date: experiance.Date,
-            ImageUrl: experiance.ImageUrl,
+            TaskName: experiance.TaskName,
             Description: experiance.Description);
     }
 }

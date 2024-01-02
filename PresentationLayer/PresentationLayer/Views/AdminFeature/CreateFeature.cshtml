@@ -1,0 +1,45 @@
+﻿@model CreateFeatureDto
+@{
+    ViewData["Title"] = "CreateFeature";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="col-xl-8 order-xl-1">
+    <div class="card">
+        <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <h3 class="mb-0">AnaSayfa Veri Ekleme Sayfası </h3>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="pl-lg-4">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="input-Header">Başlık</label>
+                                <input class="form-control" type="text" id="input-Header" asp-for="Header" placeholder="Başlık giriniz.">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="input-Name">İsim</label>
+                                <input class="form-control" type="text" id="input-Name" asp-for="Name" placeholder="İsminizi giriniz.">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="input-Title">Ünvan</label>
+                                <input class="form-control" type="text" id="input-Title" asp-for="Title" placeholder="Ünvanınızı giriniz.">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/AdminFeature/Index" class="btn btn-secondary mt-2">Geri Dön</a>
+                <button class="btn btn-primary mt-2" type="submit">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+

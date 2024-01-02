@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dtos.PortfolioDtos;
 
-public class ResultPortfolioDto
+public class UpdatePortfolioDto
 {
     public int Id { get; set; }
     public string Platform { get; set; }
