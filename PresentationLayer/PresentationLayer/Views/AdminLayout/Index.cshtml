@@ -2,52 +2,36 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html>
-@await Html.PartialAsync("/Views/AdminLayout/AdminHeaderPartial.cshtml")
-<body>
-    <!-- Sidenav -->
-    @await Html.PartialAsync("/Views/AdminLayout/AdminSidebarPartial.cshtml")
-    <!-- Main content -->
-    <div class="main-content" id="panel">
-        <!-- Topnav -->
-        @await Html.PartialAsync("/Views/AdminLayout/AdminNavbarPartial.cshtml")
-        <!-- Header -->
-        <!-- Header -->
-        <div class="header bg-primary pb-6">
-            <div class="container-fluid">
-                <div class="header-body">
-                    <div class="row align-items-center py-4">
-                        <div class="col-lg-6 col-7">
-                            <h6 class="h2 text-white d-inline-block mb-0">@ViewBag.v1</h6>
-                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                    <li class="breadcrumb-item active" ><i class="fas fa-home"></i></li>
-                                    <li class="breadcrumb-item active" >@ViewBag.v1</li>
-                                    <li class="breadcrumb-item active" aria-current="page">@ViewBag.v2</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Page content -->
-        <div class="container-fluid mt--6">
-            <div class="row">
-                <div class="col">
-                    <br />
-                    @RenderBody()
-                    <br />
-                </div>
-            </div>
-            <!-- Footer -->
-            @await Html.PartialAsync("/Views/AdminLayout/AdminFooterPartial.cshtml")
+<html lang="en">
 
+@await Html.PartialAsync("/Views/AdminLayout/AdminHeaderPartial.cshtml")
+
+<body>
+    <div class="container-scroller">
+        <!-- partial:../../partials/_sidebar.html -->
+        @await Html.PartialAsync("/Views/AdminLayout/AdminSidebarPartial.cshtml")
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_navbar.html -->
+            @await Html.PartialAsync("/Views/AdminLayout/AdminNavbarPartial.cshtml")
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="page-header">
+                        <h3 class="page-title"> @ViewBag.v1 </h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">@ViewBag.v1</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">@ViewBag.v2</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    @RenderBody()
+                </div>
+                @await Html.PartialAsync("/Views/AdminLayout/AdminFooterPartial.cshtml")
+            </div>
         </div>
     </div>
-    <!-- Argon Scripts -->
-    <!-- Core -->
     @await Html.PartialAsync("/Views/AdminLayout/AdminScriptPartial.cshtml")
-
 </body>
 </html>

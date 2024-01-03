@@ -4,52 +4,57 @@
     Layout = "~/Views/AdminLayout/Index.cshtml";
     int count = 0;
 }
-
-<div class="card-header border-0">
-    <h3 class="mb-0">Yeteneklerim Tablosu</h3>
-</div>
 @if (Model.Count() > 0)
 {
-    <div class="table-responsive">
-        <table class="table align-items-center table-flush">
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col" class="sort" data-sort="name">#</th>
-                    <th scope="col" class="sort" data-sort="budget">Başlık</th>
-                    <th scope="col" class="sort" data-sort="status">Oran</th>
-                    <th scope="col">Sil</th>
-                    <th scope="col" class="sort" data-sort="completion">Güncelle</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody class="list">
-                @foreach (var item in Model)
-                {
-                    count++;
-                    <tr>
-                        <th>
-                            @count
-                        </th>
-                        <td class="budget">
-                            @item.Title
-                        </td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <span class="completion mr-2">@item.Value%</span>
-                                <div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td><a href="/AdminSkill/RemoveSkill/@item.Id" class="btn btn-outline-danger">Sil</a></td>
-                        <td><a href="/AdminSkill/UpdateSkill/@item.Id" class="btn btn-outline-info">Güncelle</a></td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <a href="/AdminSkill/CreateSkill" class="btn btn-outline-primary">Yeni Yetenek Ekle</a>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Yeteneklerim Tablosu</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="sort" data-sort="name">#</th>
+                                    <th scope="col" class="sort" data-sort="budget">Başlık</th>
+                                    <th scope="col" class="sort" data-sort="status">Oran</th>
+                                    <th scope="col">Sil</th>
+                                    <th scope="col" class="sort" data-sort="completion">Güncelle</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <th>
+                                            @count
+                                        </th>
+                                        <td class="budget">
+                                            @item.Title
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <span class="completion mr-2">@item.Value%</span>
+                                                <div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><a href="/AdminSkill/RemoveSkill/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                                        <td><a href="/AdminSkill/UpdateSkill/@item.Id" class="btn btn-outline-info">Güncelle</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <a href="/AdminSkill/CreateSkill" class="btn btn-outline-primary">Yeni Yetenek Ekle</a>
+        </div>
     </div>
 }
 else

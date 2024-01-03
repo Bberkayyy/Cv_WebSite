@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@await Html.PartialAsync("/Views/AdminLayout/AdminHeaderPartial.cshtml")
+
+<body>
+    <div class="container-scroller">
+        <!-- partial:../../partials/_sidebar.html -->
+        @await Html.PartialAsync("/Views/AdminLayout/AdminSidebarPartial.cshtml")
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_navbar.html -->
+            @await Html.PartialAsync("/Views/AdminLayout/AdminNavbarPartial.cshtml")
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="page-header">
+                        <h3 class="page-title"> Chart-js </h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Charts</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Chart-js</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    @RenderBody()
+                </div>
+                @await Html.PartialAsync("/Views/AdminLayout/AdminFooterPartial.cshtml")
+            </div>
+        </div>
+    </div>
+    @await Html.PartialAsync("/Views/AdminLayout/AdminScriptPartial.cshtml")
+</body>
+</html>
