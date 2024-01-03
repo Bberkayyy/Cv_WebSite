@@ -14,12 +14,6 @@ public class BaseDbContext : DbContext
     {
 
     }
-
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //{
-    //    optionsBuilder.UseSqlServer("server=(localdb)\\MSSQLLocalDB;database = Cv_Db; integrated security = true");
-
-    //}
     public DbSet<About> Abouts { get; set; }
     public DbSet<Contact> Contacts { get; set; }
     public DbSet<Experiance> Experiances { get; set; }
@@ -30,4 +24,6 @@ public class BaseDbContext : DbContext
     public DbSet<Skill> Skills { get; set; }
     public DbSet<SocialMedia> SocialMedias { get; set; }
     public DbSet<Testimonial> Testimonials { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<UserMessage> UserMessages { get; set; }
 }

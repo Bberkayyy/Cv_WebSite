@@ -29,6 +29,8 @@ public static class DataAccessExtensions
         services.AddScoped<ISkillDal, SkillDal>();
         services.AddScoped<ISocialMediaDal, SocialMediaDal>();
         services.AddScoped<ITestimonialDal, TestimonialDal>();
+        services.AddScoped<IUserDal, UserDal>();
+        services.AddScoped<IUserMessageDal, UserMessageDal>();
         return services;
     }
 }

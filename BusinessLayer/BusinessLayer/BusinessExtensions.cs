@@ -23,6 +23,8 @@ public static class BusinessExtensions
         services.AddScoped<ISkillService, SkillService>();
         services.AddScoped<ISocialMediaService, SocialMediaService>();
         services.AddScoped<ITestimonialService, TestimonialService>();
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IUserMessageService, UserMessageService>();
         return services;
     }
 }
