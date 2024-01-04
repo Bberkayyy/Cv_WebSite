@@ -1,14 +1,14 @@
-﻿using Dtos.UserMessageDtos;
+﻿using Dtos.PortfolioDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace WebUI.ViewComponents.AdminDashboardUserMessageViewComponents;
+namespace WebUI.ViewComponents.AdminDashboardPortfolioSlideListViewComponents;
 
-public class _AdminDashboardUserMessageComponentPartial : ViewComponent
+public class _AdminDashboardPortfolioSlideListComponentPartial:ViewComponent
 {
     private readonly IHttpClientFactory _httpClientFactory;
 
-    public _AdminDashboardUserMessageComponentPartial(IHttpClientFactory httpClientFactory)
+    public _AdminDashboardPortfolioSlideListComponentPartial(IHttpClientFactory httpClientFactory)
     {
         _httpClientFactory = httpClientFactory;
     }
@@ -16,11 +16,11 @@ public class _AdminDashboardUserMessageComponentPartial : ViewComponent
     public async Task<IViewComponentResult> InvokeAsync()
     {
         var client = _httpClientFactory.CreateClient();
-        var responseMessage = await client.GetAsync("https://localhost:7181/api/UserMessages/getUserMessagesWithUser");
+        var responseMessage = await client.GetAsync("https://localhost:7181/api/Portfolios/getall");
         if (responseMessage.IsSuccessStatusCode)
         {
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
-            var values = JsonConvert.DeserializeObject<List<ResultGetUserMessagesWithUserDto>>(jsonData);
+            var values = JsonConvert.DeserializeObject<List<ResultPortfolioDto>>(jsonData);
             return View(values);
         }
         return View();

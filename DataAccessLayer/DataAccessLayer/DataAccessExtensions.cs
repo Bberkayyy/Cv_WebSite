@@ -31,6 +31,7 @@ public static class DataAccessExtensions
         services.AddScoped<ITestimonialDal, TestimonialDal>();
         services.AddScoped<IUserDal, UserDal>();
         services.AddScoped<IUserMessageDal, UserMessageDal>();
+        services.AddScoped<IToDoListDal, ToDoListDal>();
         return services;
     }
 }

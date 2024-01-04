@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+@await Html.PartialAsync("/Areas/Visitor/Views/VisitorLayout/VisitorHeaderPartial.cshtml")
+<body>
+    <div class="container-scroller">
+        <!-- partial:~/skydash/partials/_navbar.html -->
+        @await Html.PartialAsync("/Areas/Visitor/Views/VisitorLayout/VisitorNavbarPartial.cshtml")
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:~/skydash/partials/_settings-panel.html -->
+            <!-- partial -->
+            <!-- partial:~/skydash/partials/_sidebar.html -->
+            @await Html.PartialAsync("/Areas/Visitor/Views/VisitorLayout/VisitorSidebarPartial.cshtml")
+
+
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+
+                        @RenderBody()
+
+                    </div>
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:~/skydash/partials/_footer.html -->
+                @await Html.PartialAsync("/Areas/Visitor/Views/VisitorLayout/VisitorFooterPartial.cshtml")
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    @await Html.PartialAsync("/Areas/Visitor/Views/VisitorLayout/VisitorScriptsPartial.cshtml")
+</body>
+
+</html>

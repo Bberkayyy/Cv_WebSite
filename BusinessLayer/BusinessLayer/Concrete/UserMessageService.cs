@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using EntityLayer.Concrete;
 using EntityLayer.Dtos.RequestDtos;
 using EntityLayer.Dtos.ResponseDtos;
 using System;

@@ -1,14 +1,15 @@
-﻿using Dtos.UserMessageDtos;
+﻿using Dtos.PortfolioDtos;
+using Dtos.ToDoListDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace WebUI.ViewComponents.AdminDashboardUserMessageViewComponents;
+namespace WebUI.ViewComponents.AdminDashboardToDoListViewComponents;
 
-public class _AdminDashboardUserMessageComponentPartial : ViewComponent
+public class _AdminDashboardToDoListComponentPartial:ViewComponent
 {
     private readonly IHttpClientFactory _httpClientFactory;
 
-    public _AdminDashboardUserMessageComponentPartial(IHttpClientFactory httpClientFactory)
+    public _AdminDashboardToDoListComponentPartial(IHttpClientFactory httpClientFactory)
     {
         _httpClientFactory = httpClientFactory;
     }
@@ -16,11 +17,11 @@ public class _AdminDashboardUserMessageComponentPartial : ViewComponent
     public async Task<IViewComponentResult> InvokeAsync()
     {
         var client = _httpClientFactory.CreateClient();
-        var responseMessage = await client.GetAsync("https://localhost:7181/api/UserMessages/getUserMessagesWithUser");
+        var responseMessage = await client.GetAsync("https://localhost:7181/api/ToDoLists/getall");
         if (responseMessage.IsSuccessStatusCode)
         {
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
-            var values = JsonConvert.DeserializeObject<List<ResultGetUserMessagesWithUserDto>>(jsonData);
+            var values = JsonConvert.DeserializeObject<List<ResultToDoListDto>>(jsonData);
             return View(values);
         }
         return View();

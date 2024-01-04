@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntityLayer.Dtos.ResponseDtos;
+namespace Dtos.UserMessageDtos;
 
-public record UserMessageDetailDto
+public class ResultGetUserMessagesWithUserDto
 {
     public int Id { get; init; }
     public string Title { get; init; }

@@ -1,4 +1,5 @@
-﻿using EntityLayer.Dtos.RequestDtos;
+﻿using EntityLayer.Concrete;
+using EntityLayer.Dtos.RequestDtos;
 using EntityLayer.Dtos.ResponseDtos;
 using System;
 using System.Collections.Generic;

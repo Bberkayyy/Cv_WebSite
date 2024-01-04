@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -26,4 +27,5 @@ public class BaseDbContext : DbContext
     public DbSet<Testimonial> Testimonials { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<UserMessage> UserMessages { get; set; }
+    public DbSet<ToDoList> ToDoLists { get; set; }
 }

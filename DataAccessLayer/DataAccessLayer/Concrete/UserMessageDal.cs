@@ -32,10 +32,11 @@ public class UserMessageDal : GenericRepository<BaseDbContext, UserMessage>, IUs
                 Content = userMessage.Content,
                 Date = userMessage.Date,
                 Status = userMessage.Status,
-                Name = user.Name,
-                Surname = user.Surname,
-                UserName = user.UserName,
-                Mail = user.Mail
+                UserName = userMessage.User.Name,
+                UserSurname = userMessage.User.Surname,
+                UserUserName = userMessage.User.UserName,
+                UserMail = userMessage.User.Mail,
+                UserImage=userMessage.User.ImageUrl
             }).ToList();
     }
 }
