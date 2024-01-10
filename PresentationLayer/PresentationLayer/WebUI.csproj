@@ -3475,7 +3475,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Visitor\Data\" />
-    <Folder Include="Areas\Visitor\Models\" />
     <Folder Include="ViewComponents\AdminDashboardViewComponents\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\js\" />

@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using DataAccessLayer.BaseContext;
 using DataAccessLayer.Concrete;
+using EntityLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +19,8 @@ public static class DataAccessExtensions
     public static IServiceCollection AddDataAccessExtensions(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<BaseDbContext>(opt => opt.UseSqlServer(configuration.GetConnectionString("SqlConnection")));
+
+        services.AddIdentity<VisitorUser, VisitorRole>().AddEntityFrameworkStores<BaseDbContext>();
 
         services.AddScoped<IAboutDal, AboutDal>();
         services.AddScoped<IContactDal, ContactDal>();

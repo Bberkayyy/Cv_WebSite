@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.BaseContext;
 
-public class BaseDbContext : DbContext
+public class BaseDbContext : IdentityDbContext<VisitorUser, VisitorRole, int>
 {
     public BaseDbContext(DbContextOptions<BaseDbContext> opt) : base(opt)
     {

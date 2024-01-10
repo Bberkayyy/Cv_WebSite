@@ -1,7 +1,14 @@
+using DataAccessLayer.BaseContext;
+using EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<BaseDbContext>(c => c.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection")));
+builder.Services.AddIdentity<VisitorUser, VisitorRole>().AddEntityFrameworkStores<BaseDbContext>();
 
 builder.Services.AddHttpClient();
 
@@ -20,6 +27,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
