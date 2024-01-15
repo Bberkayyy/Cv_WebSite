@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\images\**" />
-    <Content Remove="wwwroot\images\**" />
-    <EmbeddedResource Remove="wwwroot\images\**" />
-    <None Remove="wwwroot\images\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="wwwroot\argon-dashboard-master\assets\vendor\gulp-copy\node_modules\yargs-parser\LICENSE.txt" />
     <Content Include="wwwroot\argon-dashboard-master\assets\vendor\gulp-copy\node_modules\yargs\locales\be.json" />
     <Content Include="wwwroot\argon-dashboard-master\assets\vendor\gulp-copy\node_modules\yargs\locales\de.json" />
@@ -3485,6 +3478,7 @@
     <Folder Include="wwwroot\lib\jquery-validation\dist\" />
     <Folder Include="wwwroot\lib\jquery\" />
     <Folder Include="wwwroot\lib\jquery\dist\" />
+    <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\skydash\.git\objects\info\" />
     <Folder Include="wwwroot\skydash\.git\objects\pack\" />
     <Folder Include="wwwroot\skydash\.git\refs\tags\" />

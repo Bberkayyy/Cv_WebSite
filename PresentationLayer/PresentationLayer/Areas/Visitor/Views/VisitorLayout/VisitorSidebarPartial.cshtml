@@ -1,38 +1,56 @@
-﻿<nav class="sidebar sidebar-offcanvas" id="sidebar">
+﻿<link rel="stylesheet" href="~/skydash/vendors/mdi/css/materialdesignicons.min.css">
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="icon-grid menu-icon"></i>
+            <a class="nav-link" href="/Visitor/Dashboard/Index/">
+                <i class="mdi mdi-view-list menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="icon-grid menu-icon"></i>
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                 <span class="menu-title">Mesajlar</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu" style="list-style-type:none;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Visitor/Message/ReceiverMessages/">
+                            <i class="mdi mdi-call-received menu-icon"></i>
+                            <span class="menu-title">Gelen Mesajlar</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Visitor/Message/SenderMessages/">
+                            <i class="mdi mdi-call-made menu-icon"></i>
+                            <span class="menu-title">Giden Mesajlar</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Visitor/Message/AddMessage/">
+                            <i class="mdi mdi-message-draw menu-icon"></i>
+                            <span class="menu-title">Yeni Mesaj</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Visitor/Default/Index/">
+                <i class="mdi mdi-new-box menu-icon"></i>
+                <span class="menu-title">Duyurular</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#tables">
-                <i class="icon-grid menu-icon"></i>
-                <span class="menu-title">Tablolar</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="icon-grid menu-icon"></i>
-                <span class="menu-title">Profil</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="icon-grid menu-icon"></i>
+            <a class="nav-link" href="/Visitor/Profile/Index/">
+                <i class="mdi mdi-settings menu-icon"></i>
                 <span class="menu-title">Ayarlar</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="icon-grid menu-icon"></i>
+            <a class="nav-link" href="/Visitor/Login/Logout/">
+                <i class="ti-power-off menu-icon"></i>
                 <span class="menu-title">Çıkış Yap</span>
             </a>
         </li>

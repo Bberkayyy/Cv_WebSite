@@ -26,6 +26,8 @@ public static class BusinessExtensions
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IUserMessageService, UserMessageService>();
         services.AddScoped<IToDoListService, ToDoListService>();
+        services.AddScoped<IAnnouncementService, AnnouncementService>();
+        services.AddScoped<IVisitorMessageService, VisitorMessageService>();
         return services;
     }
 }

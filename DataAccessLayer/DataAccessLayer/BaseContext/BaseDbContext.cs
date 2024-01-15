@@ -28,4 +28,6 @@ public class BaseDbContext : IdentityDbContext<VisitorUser, VisitorRole, int>
     public DbSet<User> Users { get; set; }
     public DbSet<UserMessage> UserMessages { get; set; }
     public DbSet<ToDoList> ToDoLists { get; set; }
+    public DbSet<Announcement> Announcements { get; set; }
+    public DbSet<VisitorMessage> VisitorMessages { get; set; }
 }

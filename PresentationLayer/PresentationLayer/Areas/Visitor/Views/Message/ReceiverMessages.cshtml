@@ -1,6 +1,6 @@
-﻿@model List<ResultAnnouncementDto>
+﻿@model List<ResultVisitorMessageDto>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "ReceiverMessages";
     Layout = "~/Areas/Visitor/Views/VisitorLayout/Index.cshtml";
     int count = 0;
 }
@@ -8,16 +8,16 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Duyurular</h4>
+                <h4 class="card-title">Gelen Kutusu</h4>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Başlık</th>
-                                <th>Tarih</th>
-                                <th>İçerik</th>
                                 <th>Konu</th>
+                                <th>Gönderen</th>
+                                <th>Tarih</th>
+                                <th>Mesaj Detayları</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,10 +26,10 @@
                                 count++;
                                 <tr>
                                     <td>@count</td>
-                                    <td>@item.Title</td>
-                                    <td>@item.Date</td>
-                                    <td>@item.Content</td>
-                                    <td>-----</td>
+                                    <td>@item.Subject</td>
+                                    <td>@item.SenderMail</td>
+                                    <td>@item.SendDate.ToString("dddd, dd MMMM yyyy", System.Globalization.CultureInfo.GetCultureInfo("Tr-tr"))</td>
+                                    <td><a class="btn btn-outline-primary" href="/Visitor/Message/Details/@item.Id">Mesajı Gör</a></td>
                                 </tr>
                             }
                         </tbody>
