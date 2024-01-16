@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="card col-md-12">
+            <div class="card col-md-12" style="margin-bottom:10px">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <p class="card-title">Yardım Menüsü</p>
@@ -57,9 +57,34 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <p class="mb-4">Gelen Mesaj Sayısı</p>
+                            <a href="/Visitor/Message/ReceiverMessages/" class="text-info">Mesajları Gör</a>
+                        </div>
+                        <p class="fs-30 mb-2">@ViewBag.MessageReceiver</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <p class="mb-4">Gönderilen Mesaj Sayısı</p>
+                            <a href="/Visitor/Message/SenderMessages/" class="text-info" ">Mesajları Gör</a>
+                        </div>
+                        <p class="fs-30 mb-2">@ViewBag.MessageSender</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 </div>
-@*<div class="col-md-4 " data-aos="zoom-in" data-aos-delay="100">
+                            @*<div class="col-md-4 " data-aos="zoom-in" data-aos-delay="100">
     <div class="bg-light my-2 p-3 pt-2">
         <form action="/Default/Index/" method="post">
             <div class="form-group my-2">
@@ -79,8 +104,8 @@
     </div>
 </div>*@
 
-@*
-<div class="col-md-6 grid-margin transparent">
+
+                            @* <div class="col-md-6 grid-margin transparent">
     <div class="row">
         <div class="col-md-6 mb-4 stretch-card transparent">
             <div class="card card-tale">

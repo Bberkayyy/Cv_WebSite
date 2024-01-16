@@ -19,4 +19,6 @@ public interface IVisitorMessageService
 
     List<VisitorMessageResponseDto> GetReceiverMessages(string mail);
     List<VisitorMessageResponseDto> GetSenderMessages(string mail);
+    int GetReceiverMessageCount(string mail);
+    int GetSenderMessageCount(string mail);
 }

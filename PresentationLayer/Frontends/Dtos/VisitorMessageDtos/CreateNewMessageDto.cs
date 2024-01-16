@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dtos.VisitorMessageDtos;
 
-public class ResultVisitorMessageDto
+public class CreateNewMessageDto
 {
-    public int Id { get; set; }
     public string SenderMail { get; set; }
     public string ReceiverMail { get; set; }
     public string SenderName { get; set; }

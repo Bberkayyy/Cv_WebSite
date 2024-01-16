@@ -16,4 +16,13 @@ public class VisitorMessageDal : GenericRepository<BaseDbContext, VisitorMessage
     public VisitorMessageDal(BaseDbContext context) : base(context)
     {
     }
+
+    public int GetReceiverMessageCount(string mail)
+    {
+        return Context.VisitorMessages.Where(x => x.ReceiverMail == mail).Count();
+    }
+    public int GetSenderMessageCount(string mail)
+    {
+        return Context.VisitorMessages.Where(x => x.SenderMail == mail).Count();
+    }
 }

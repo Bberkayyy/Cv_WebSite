@@ -46,7 +46,7 @@
             <span class="nav-link">Navigation</span>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/index.html">
+            <a class="nav-link" href="/AdminDashboard/Index">
                 <span class="menu-icon">
                     <i class="mdi mdi-speedometer"></i>
                 </span>
@@ -107,6 +107,30 @@
                     <i class="mdi mdi-speedometer"></i>
                 </span>
                 <span class="menu-title">Deneyimler</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                <span class="menu-icon">
+                    <i class="mdi mdi-speedometer"></i>
+                </span>
+                <span class="menu-title">Mesajlar</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="/AdminMessage/Index">Siteden Gelen Mesajlar</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/AdminVisitorMessage/Inbox">Kullanıcı Mesajları</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/AdminVisitorMessage/Sendbox">Gönderilen Mesajlar</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/AdminLogin/Logout">
+                <span class="menu-icon">
+                    <i class="mdi mdi-speedometer"></i>
+                </span>
+                <span class="menu-title">Çıkış Yap</span>
             </a>
         </li>
     </ul>

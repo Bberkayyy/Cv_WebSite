@@ -58,4 +58,16 @@ public class VisitorMessagesController : ControllerBase
         var values = _VisitorMessageService.GetSenderMessages(senderMail);
         return Ok(values);
     }
+    [HttpGet("getReceiverMessageCount")]
+    public IActionResult GetReceiverMessageCount(string mail)
+    {
+        var value = _VisitorMessageService.GetReceiverMessageCount(mail);
+        return Ok(value);
+    }
+    [HttpGet("getSenderMessageCount")]
+    public IActionResult GetSenderMessageCount(string mail)
+    {
+        var value = _VisitorMessageService.GetSenderMessageCount(mail);
+        return Ok(value);
+    }
 }

@@ -46,10 +46,11 @@ public class ProfileController : Controller
         }
         value.Name = updateViewModel.Name;
         value.Surname = updateViewModel.Surname;
+        value.PasswordHash = _userManager.PasswordHasher.HashPassword(value, updateViewModel.Password);
         var result = await _userManager.UpdateAsync(value);
         if (result.Succeeded)
         {
-            return RedirectToAction("Index", "Default", new { area = "Visitor" });
+            return RedirectToAction("Index", "Login", new { area = "Visitor" });
         }
         return View(value);
     }

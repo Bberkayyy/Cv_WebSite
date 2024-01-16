@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace WebUI.Areas.Visitor.Controllers;
 
@@ -78,6 +79,31 @@ public class MessageController : Controller
             var value = JsonConvert.DeserializeObject<ResultVisitorMessageDto>(jsonData);
             return View(value);
         }
+        return View();
+    }
+    [HttpGet]
+    [Route("NewMessage")]
+    public IActionResult NewMessage()
+    {
+        return View();
+    }
+    [HttpPost]
+    [Route("NewMessage")]
+    public async Task<IActionResult> NewMessage(CreateNewMessageDto newMessageDto)
+    {
+        var user = await _userManager.FindByNameAsync(User.Identity.Name);
+        newMessageDto.SenderMail = user.Email;
+        newMessageDto.SenderName = user.Name + " " + user.Surname;
+        newMessageDto.SendDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+        var receiverName = _userManager.Users.Where(x => x.Email == newMessageDto.ReceiverMail).Select(n => n.Name + " " + n.Surname).FirstOrDefault();
+        newMessageDto.ReceiverName = receiverName;
+
+        var client = _httpClientFactory.CreateClient();
+        var jsonData = JsonConvert.SerializeObject(newMessageDto);
+        StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+        var responseMessage = await client.PostAsync("https://localhost:7181/api/VisitorMessages/add", content);
+        if (responseMessage.IsSuccessStatusCode)
+            return RedirectToAction("SenderMessages", "Message", new { area = "Visitor" });
         return View();
     }
 }

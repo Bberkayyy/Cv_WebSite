@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dtos.VisitorMessageDtos;
+namespace Dtos.MessageDtos;
 
-public class ResultVisitorMessageDto
+public class ResultAdminVisitorMessageDto
 {
     public int Id { get; set; }
     public string SenderMail { get; set; }

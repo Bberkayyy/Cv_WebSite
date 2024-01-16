@@ -10,5 +10,6 @@ namespace DataAccessLayer.Abstract;
 
 public interface IVisitorMessageDal : IGenericDal<VisitorMessage>
 {
-
+    int GetReceiverMessageCount(string mail);
+    int GetSenderMessageCount(string mail);
 }

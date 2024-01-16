@@ -60,4 +60,14 @@ public class VisitorMessageService : IVisitorMessageService
         var values = _visitorMessageDal.GetAll(x => x.SenderMail == mail);
         return values.Select(x => VisitorMessageResponseDto.ConvertToResponse(x)).ToList();
     }
+
+    public int GetReceiverMessageCount(string mail)
+    {
+        return _visitorMessageDal.GetReceiverMessageCount(mail);
+    }
+
+    public int GetSenderMessageCount(string mail)
+    {
+        return _visitorMessageDal.GetSenderMessageCount(mail);
+    }
 }
