@@ -46,4 +46,16 @@ public class TestimonialsController : ControllerBase
         var value = _TestimonialService.GetById(id);
         return Ok(value);
     }
+    [HttpGet("TestimonialShowcaseToFalse")]
+    public IActionResult ChangeTestimonialShowcaseToFalse(int id)
+    {
+        _TestimonialService.ChangeTestimonialShowcaseToFalse(id);
+        return Ok("Güncelleme Başarılı");
+    }
+    [HttpGet("TestimonialShowcaseToTrue")]
+    public IActionResult ChangeTestimonialShowcaseToTrue(int id)
+    {
+        _TestimonialService.ChangeTestimonialShowcaseToTrue(id);
+        return Ok("Güncelleme Başarılı");
+    }
 }

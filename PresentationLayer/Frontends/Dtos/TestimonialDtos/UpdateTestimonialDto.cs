@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dtos.TestimonialDtos;
 
-public class ResultTestimonialDto
+public class UpdateTestimonialDto
 {
     public int Id { get; set; }
     public string ClientName { get; set; }

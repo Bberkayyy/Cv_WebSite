@@ -12,7 +12,8 @@ public record TestimonialResponseDto(int Id,
                                      string Company,
                                      string Comment,
                                      string ImageUrl,
-                                     string Title)
+                                     string Title,
+                                     bool Showcase)
 {
     public static TestimonialResponseDto ConvertToResponse(Testimonial Testimonial)
     {
@@ -22,7 +23,8 @@ public record TestimonialResponseDto(int Id,
             Company: Testimonial.Company,
             Comment: Testimonial.Comment,
             ImageUrl: Testimonial.ImageUrl,
-            Title: Testimonial.Title
+            Title: Testimonial.Title,
+            Showcase: Testimonial.Showcase
             );
     }
 }

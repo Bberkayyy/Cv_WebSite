@@ -26,6 +26,16 @@ public class TestimonialService : ITestimonialService
         _TestimonialDal.Add(value);
     }
 
+    public void ChangeTestimonialShowcaseToFalse(int id)
+    {
+        _TestimonialDal.ChangeTestimonialShowcaseToFalse(id);
+    }
+
+    public void ChangeTestimonialShowcaseToTrue(int id)
+    {
+        _TestimonialDal.ChangeTestimonialShowcaseToTrue(id);
+    }
+
     public List<TestimonialResponseDto> GetAll()
     {
         var values = _TestimonialDal.GetAll();

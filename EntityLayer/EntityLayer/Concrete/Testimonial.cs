@@ -14,4 +14,5 @@ public class Testimonial
     public string Comment { get; set; }
     public string ImageUrl { get; set; }
     public string Title { get; set; }
+    public bool Showcase { get; set; }
 }

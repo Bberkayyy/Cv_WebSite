@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dtos.TestimonialDtos;
 
-public class ResultTestimonialDto
+public class CreateTestimonialDto
 {
-    public int Id { get; set; }
     public string ClientName { get; set; }
     public string Company { get; set; }
     public string Comment { get; set; }

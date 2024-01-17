@@ -16,4 +16,7 @@ public interface ITestimonialService
     void Update(TestimonialUpdateRequestDto TestimonialUpdateRequest);
     List<TestimonialResponseDto> GetAll();
     TestimonialResponseDto GetById(int id);
+
+    void ChangeTestimonialShowcaseToFalse(int id);
+    void ChangeTestimonialShowcaseToTrue(int id);
 }

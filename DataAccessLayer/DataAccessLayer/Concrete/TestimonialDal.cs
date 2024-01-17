@@ -12,7 +12,21 @@ namespace DataAccessLayer.Concrete;
 
 public class TestimonialDal : GenericRepository<BaseDbContext, Testimonial>, ITestimonialDal
 {
-	public TestimonialDal(BaseDbContext context) : base(context)
-	{
-	}
+    public TestimonialDal(BaseDbContext context) : base(context)
+    {
+    }
+
+    public void ChangeTestimonialShowcaseToFalse(int id)
+    {
+        var value = Context.Testimonials.Where(x => x.Id == id).FirstOrDefault();
+        value.Showcase = false;
+        Context.SaveChanges();
+    }
+
+    public void ChangeTestimonialShowcaseToTrue(int id)
+    {
+        var value = Context.Testimonials.Where(x => x.Id == id).FirstOrDefault();
+        value.Showcase = true;
+        Context.SaveChanges();
+    }
 }

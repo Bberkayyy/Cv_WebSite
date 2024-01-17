@@ -9,4 +9,6 @@ namespace DataAccessLayer.Abstract;
 
 public interface ITestimonialDal : IGenericDal<Testimonial>
 {
+    void ChangeTestimonialShowcaseToFalse(int id);
+    void ChangeTestimonialShowcaseToTrue(int id);
 }

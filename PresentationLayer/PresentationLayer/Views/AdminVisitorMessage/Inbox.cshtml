@@ -36,16 +36,18 @@
                                         <td>@item.SendDate</td>
                                         <td><a href="/AdminVisitorMessage/Delete/@item.Id" class="btn btn-outline-danger">Sil</a></td>
                                         <td><a @* href="/AdminMessage/MessageStatus/@item.Id" *@ class="btn btn-outline-info">Okundu Olarak İşaretle</a></td>
-                                        <td><a href="/AdminVisitorMessage/Details/@item.Id" class="btn btn-outline-primary">Mesaja Git</a></td>
+                                        <td><a href="/AdminVisitorMessage/Details/@item.Id" class="btn btn-outline-warning">Mesaja Git</a></td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <a href="/AdminVisitorMessage/SendMessage" class="btn btn-outline-primary">Yeni Mesaj Oluştur</a>
 }
 else
 {

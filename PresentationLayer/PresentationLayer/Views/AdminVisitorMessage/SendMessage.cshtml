@@ -1,0 +1,39 @@
+﻿@model CreateAdminVisitorMessageDto
+@{
+    ViewData["Title"] = "SendMessage";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="col-xl-8 order-xl-1">
+    <div class="card">
+        <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <h3 class="mb-0">Yeni Mesaj</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="pl-lg-4">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="input-Subject">Konu</label>
+                                <input class="form-control text-success" type="text" id="input-Subject" asp-for="Subject">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="input-ReceiverMail">Alıcı Mail</label>
+                                <input class="form-control text-success" type="text" id="input-ReceiverMail" asp-for="ReceiverMail">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="input-MessageContent">Mesaj</label>
+                                <textarea rows="10" class="form-control text-success" type="text" id="input-MessageContent" asp-for="MessageContent"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-outline-warning">Gönder</button>
+            </form>
+        </div>
+    </div>
+</div>

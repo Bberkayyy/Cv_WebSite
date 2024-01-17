@@ -1,0 +1,68 @@
+﻿@model List<ResultTestimonialDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+@if (Model.Count() > 0)
+{
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Referanslar Tablosu</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th scope="col" class="sort" data-sort="name">Referans Adı</th>
+                                    <th scope="col" class="sort" data-sort="name">Şirket</th>
+                                    <th scope="col" class="sort" data-sort="status">Pozisyon</th>
+                                    <th scope="col" class="sort" data-sort="status">Image</th>
+                                    <th scope="col">Sil</th>
+                                    <th scope="col">Güncelle</th>
+                                    <th scope="col" class="sort" data-sort="completion">Sitede Göster</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <td>@count</td>
+                                        <td>@item.ClientName</td>
+                                        <td>@item.Company</td>
+                                        <td>@item.Title</td>
+                                        <td>@item.ImageUrl</td>
+                                        <td><a href="/AdminTestimonial/RemoveTestimonial/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                                        <td><a href="/AdminTestimonial/UpdateTestimonial/@item.Id" class="btn btn-outline-warning">Güncelle</a></td>
+                                        <td>
+                                            <form method="post" style="margin-left:20px">
+                                                <input type="hidden" asp-for="@item.Id" />
+                                                @if (item.Showcase)
+                                                {
+                                                    <button disabled class="btn btn-outline-success">Zaten Yayında</button>
+                                                }
+                                                else
+                                                {
+                                                    <a href="/AdminTestimonial/UpdateTestimonialStatus/@item.Id" class="btn btn-outline-success">Göster</a>
+                                                }
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/AdminTestimonial/CreateTestimonial" class="btn btn-outline-primary">Yeni Referans Ekle</a>
+}
+else
+{
+    <p class="bg-danger text-white p-4 text-center card-body table-responsive">Referans isteği bulunamadı.Refenrans bilgisi eklemek için "Yeni Referans Ekle" butonuna tıklayınız.</p>
+    <a href="/AdminTestimonial/CreateTestimonial" class="btn btn-outline-primary">Yeni Referans Ekle</a>
+}

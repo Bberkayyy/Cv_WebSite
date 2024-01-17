@@ -12,7 +12,8 @@ public record TestimonialUpdateRequestDto(int Id,
                                           string Company,
                                           string Comment,
                                           string ImageUrl,
-                                          string Title)
+                                          string Title,
+                                          bool Showcase)
 {
     public static Testimonial ConverToEntity(TestimonialUpdateRequestDto request)
     {
@@ -23,7 +24,8 @@ public record TestimonialUpdateRequestDto(int Id,
             Company = request.Company,
             Comment = request.Comment,
             ImageUrl = request.ImageUrl,
-            Title = request.Title
+            Title = request.Title,
+            Showcase = request.Showcase
         };
     }
 }
