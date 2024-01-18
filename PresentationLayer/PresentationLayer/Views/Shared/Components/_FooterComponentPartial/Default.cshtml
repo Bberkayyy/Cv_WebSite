@@ -1,0 +1,19 @@
+﻿@model List<ResultSocialMediaDto>
+<footer class="pt-4 pb-4 text-center bg-light">
+    <div class="container">
+        <div class="my-3">
+            <div class="h4">Berkay OĞUZ</div>
+            <p>Software Developer & Full Stack .NET Developer</p>
+            <div class="social-nav">
+                <nav role="navigation">
+                    <ul class="nav justify-content-center">
+                        @foreach (var item in Model)
+                        {
+                            <li class="nav-item"><a class="nav-link" target="_blank" href="@item.Url" title="@item.Name"><i class="@item.IconUrl"></i><span class="menu-title sr-only">@item.Name</span></a></li>
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</footer>

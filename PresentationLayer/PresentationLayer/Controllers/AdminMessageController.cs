@@ -16,6 +16,8 @@ public class AdminMessageController : Controller
 
     public async Task<IActionResult> Index()
     {
+        ViewBag.v1 = "Mesajlar";
+        ViewBag.v2 = "Siteden Gelen Mesajlar";
         var client = _httpClientFactory.CreateClient();
         var responseMessage = await client.GetAsync("https://localhost:7181/api/Messages/getall");
         if (responseMessage.IsSuccessStatusCode)

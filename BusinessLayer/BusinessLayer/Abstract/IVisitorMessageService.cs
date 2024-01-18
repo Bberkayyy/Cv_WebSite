@@ -1,4 +1,6 @@
-﻿using EntityLayer.Dtos.RequestDtos;
+﻿using EntityLayer.Concrete;
+using EntityLayer.Dtos;
+using EntityLayer.Dtos.RequestDtos;
 using EntityLayer.Dtos.ResponseDtos;
 using System;
 using System.Collections.Generic;
@@ -21,4 +23,5 @@ public interface IVisitorMessageService
     List<VisitorMessageResponseDto> GetSenderMessages(string mail);
     int GetReceiverMessageCount(string mail);
     int GetSenderMessageCount(string mail);
+    List<AdminNavbarMessageImagesDto> GetLast3ReceiverMessage(string mail);
 }

@@ -1,5 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using EntityLayer.Concrete;
+using EntityLayer.Dtos;
 using EntityLayer.Dtos.RequestDtos;
 using EntityLayer.Dtos.ResponseDtos;
 using System;
@@ -69,5 +71,10 @@ public class VisitorMessageService : IVisitorMessageService
     public int GetSenderMessageCount(string mail)
     {
         return _visitorMessageDal.GetSenderMessageCount(mail);
+    }
+
+    public List<AdminNavbarMessageImagesDto> GetLast3ReceiverMessage(string mail)
+    {
+        return _visitorMessageDal.GetLast3ReceiverMessage(mail);
     }
 }

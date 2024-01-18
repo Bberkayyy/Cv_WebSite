@@ -21,6 +21,8 @@ public class AdminVisitorMessageController : Controller
 
     public async Task<IActionResult> Inbox()
     {
+        ViewBag.v1 = "Mesajlar";
+        ViewBag.v2 = "Kullanıcılardan Gelen Mesajlar";
         TempData["Url"] = "Inbox";
         string mail = "admin@gmail.com";
         var client = _httpClientFactory.CreateClient();
@@ -35,6 +37,8 @@ public class AdminVisitorMessageController : Controller
     }
     public async Task<IActionResult> Sendbox()
     {
+        ViewBag.v1 = "Mesajlar";
+        ViewBag.v2 = "Gönderilen Mesajlar";
         TempData["Url"] = "Sendbox";
         string mail = "admin@gmail.com";
         var client = _httpClientFactory.CreateClient();

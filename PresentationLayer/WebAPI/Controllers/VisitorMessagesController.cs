@@ -70,4 +70,10 @@ public class VisitorMessagesController : ControllerBase
         var value = _VisitorMessageService.GetSenderMessageCount(mail);
         return Ok(value);
     }
+    [HttpGet("getLast3ReceiverMessage")]
+    public IActionResult GetLast3ReceiverMessage(string mail)
+    {
+        var value = _VisitorMessageService.GetLast3ReceiverMessage(mail);
+        return Ok(value);
+    }
 }

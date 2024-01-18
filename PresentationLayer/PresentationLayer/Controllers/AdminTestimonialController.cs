@@ -16,6 +16,8 @@ public class AdminTestimonialController : Controller
 
     public async Task<IActionResult> Index()
     {
+        ViewBag.v1 = "Referanslar";
+        ViewBag.v2 = "Referans İstekleri";
         var client = _httpClientFactory.CreateClient();
         var responseMessage = await client.GetAsync("https://localhost:7181/api/Testimonials/getall");
         if (responseMessage.IsSuccessStatusCode)

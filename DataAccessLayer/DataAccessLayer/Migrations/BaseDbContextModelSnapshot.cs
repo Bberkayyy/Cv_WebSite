@@ -60,7 +60,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Abouts");
+                    b.ToTable("Abouts", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Announcement", b =>
@@ -88,7 +88,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Announcements");
+                    b.ToTable("Announcements", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Contact", b =>
@@ -117,7 +117,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts");
+                    b.ToTable("Contacts", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Experiance", b =>
@@ -146,7 +146,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Experiances");
+                    b.ToTable("Experiances", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Feature", b =>
@@ -171,7 +171,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Features");
+                    b.ToTable("Features", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Message", b =>
@@ -202,7 +202,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Messages");
+                    b.ToTable("Messages", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Portfolio", b =>
@@ -235,7 +235,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Portfolios");
+                    b.ToTable("Portfolios", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Service", b =>
@@ -256,7 +256,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Services");
+                    b.ToTable("Services", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Skill", b =>
@@ -277,7 +277,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Skills");
+                    b.ToTable("Skills", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.SocialMedia", b =>
@@ -305,7 +305,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SocialMedias");
+                    b.ToTable("SocialMedias", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Testimonial", b =>
@@ -341,7 +341,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Testimonials");
+                    b.ToTable("Testimonials", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.ToDoList", b =>
@@ -361,7 +361,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ToDoLists");
+                    b.ToTable("ToDoLists", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.VisitorMessage", b =>
@@ -401,7 +401,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("VisitorMessages");
+                    b.ToTable("VisitorMessages", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.VisitorRole", b =>

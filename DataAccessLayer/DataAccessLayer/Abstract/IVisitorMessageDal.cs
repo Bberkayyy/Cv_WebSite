@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using EntityLayer.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,4 +13,5 @@ public interface IVisitorMessageDal : IGenericDal<VisitorMessage>
 {
     int GetReceiverMessageCount(string mail);
     int GetSenderMessageCount(string mail);
+    List<AdminNavbarMessageImagesDto> GetLast3ReceiverMessage(string mail);
 }

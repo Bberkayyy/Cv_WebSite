@@ -1,0 +1,22 @@
+﻿@model List<ResultLast3MessageReceiverAdminDto>
+<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+    <h6 class="p-3 mb-0">Son Mesajlar</h6>
+    <div class="dropdown-divider"></div>
+    @foreach (var item in Model)
+    {
+        <a class="dropdown-item preview-item" href="/AdminVisitorMessage/Details/@item.Id">
+            <div class="preview-thumbnail">
+                <img src="~/images/@item.ImageUrl" alt="image" class="rounded-circle profile-pic">
+            </div>
+            <div class="preview-item-content">
+                <p class="preview-subject ellipsis mb-1">@item.SenderName bir mesaj gönderdi.</p>
+                <p class="preview-subtitle ellipsis mb-1" style="color:rgba(234, 240, 246, 0.3);">@item.Subject</p>
+                <p class="text-muted mb-0">@item.SendDate.ToShortDateString()</p>
+            </div>
+        </a>
+        <div class="dropdown-divider"></div>
+    }
+    <p class="p-3 mb-0 text-center"><a href="/AdminVisitorMessage/Inbox/">Tüm Mesajları Gör</a></p>
+    <div class="dropdown-divider"></div>
+    <p class="p-3 mb-0 text-center"><a href="/AdminMessage/Index/">Site Mesajlarını Gör</a></p>
+</div>

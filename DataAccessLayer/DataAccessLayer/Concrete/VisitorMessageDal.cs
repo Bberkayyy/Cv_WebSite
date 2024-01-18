@@ -2,6 +2,7 @@
 using DataAccessLayer.BaseContext;
 using DataAccessLayer.Repository;
 using EntityLayer.Concrete;
+using EntityLayer.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,23 @@ public class VisitorMessageDal : GenericRepository<BaseDbContext, VisitorMessage
 {
     public VisitorMessageDal(BaseDbContext context) : base(context)
     {
+    }
+
+    public List<AdminNavbarMessageImagesDto> GetLast3ReceiverMessage(string mail)
+    {
+        return Context.VisitorMessages.Join(
+             Context.Users,
+             vm => vm.SenderMail,
+             u => u.Email,
+             (visitorMessage, User) => new AdminNavbarMessageImagesDto
+             {
+                 Id = visitorMessage.Id,
+                 ImageUrl = User.ImageUrl,
+                 SendDate = visitorMessage.SendDate,
+                 SenderName = visitorMessage.SenderName,
+                 Subject = visitorMessage.Subject
+             }).OrderByDescending(a => a.Id).Take(3).ToList();
+
     }
 
     public int GetReceiverMessageCount(string mail)
