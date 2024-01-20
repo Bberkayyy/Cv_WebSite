@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebUI.Areas.Visitor.Models;
@@ -7,6 +8,7 @@ namespace WebUI.Areas.Visitor.Controllers;
 
 [Area("Visitor")]
 [Route("Visitor/[controller]")]
+[AllowAnonymous]
 public class LoginController : Controller
 {
     private readonly SignInManager<VisitorUser> _signInManager;
@@ -30,7 +32,7 @@ public class LoginController : Controller
             var result = await _signInManager.PasswordSignInAsync(loginViewModel.Username, loginViewModel.Password, true, true);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Default", new { area = "Visitor" });
+                return RedirectToAction("Index", "Dashboard");
             }
             else
             {

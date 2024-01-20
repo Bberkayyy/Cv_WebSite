@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebUI.Areas.Visitor.Models;
@@ -7,6 +8,7 @@ namespace WebUI.Areas.Visitor.Controllers;
 
 [Area("Visitor")]
 [Route("Visitor/[controller]")]
+[AllowAnonymous]
 public class RegisterController : Controller
 {
     private readonly UserManager<VisitorUser> _userManager;

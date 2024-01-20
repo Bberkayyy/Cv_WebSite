@@ -1,10 +1,11 @@
 ﻿using Dtos.ServiceDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace WebUI.Controllers;
-
+[Authorize]
 public class AdminServiceController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;

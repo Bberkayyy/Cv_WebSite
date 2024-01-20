@@ -1,10 +1,11 @@
 ﻿using Dtos.SocialMediaDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace WebUI.Controllers;
-
+[Authorize]
 public class AdminSocialMediaController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;
