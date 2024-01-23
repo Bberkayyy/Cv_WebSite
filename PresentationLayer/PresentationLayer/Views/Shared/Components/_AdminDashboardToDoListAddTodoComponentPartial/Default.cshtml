@@ -1,0 +1,7 @@
+﻿@model CreateTodoDto
+<form method="post" asp-action="CreateToDo" asp-controller="AdminDashboardToDoList">
+    <div class="add-items d-flex">
+        <input asp-for="Content" type="text" class="form-control todo-list-input" placeholder="eklenecek kelimeyi girin..">
+        <button type="submit" class="btn btn-primary">Ekle</button>
+    </div>
+</form>

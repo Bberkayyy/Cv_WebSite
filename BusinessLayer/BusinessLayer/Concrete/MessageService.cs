@@ -39,6 +39,12 @@ public class MessageService : IMessageService
         return MessageResponseDto.ConvertToResponse(value);
     }
 
+    public List<MessageResponseDto> GetLast5Messages()
+    {
+        var value = _MessageDal.GetLast5Messages();
+        return value.Select(x => MessageResponseDto.ConvertToResponse(x)).ToList();
+    }
+
     public void Remove(int id)
     {
         var value = _MessageDal.GetById(id);

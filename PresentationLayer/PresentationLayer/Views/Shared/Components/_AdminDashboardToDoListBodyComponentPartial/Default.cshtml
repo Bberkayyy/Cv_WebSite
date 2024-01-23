@@ -1,0 +1,52 @@
+﻿@model List<ResultToDoListDto>
+
+<style>
+    #style::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+    }
+
+    #style::-webkit-scrollbar {
+        width: 6px;
+        background-color: #F5F5F5;
+    }
+
+    #style::-webkit-scrollbar-thumb {
+        background-color: #000000;
+    }
+</style>
+<ul class="d-flex flex-column-reverse text-white todo-list todo-list-custom" id="style" style="height:350px; overflow:hidden; overflow-y:scroll;">
+    @foreach (var item in Model)
+    {
+        @if (item.Status == false)
+        {
+            <li>
+                <div class="form-check form-check-primary">
+                    <form method="post" style="margin-left:-30px">
+                        <label class="form-check-label">
+                            <input type="hidden" asp-for="@item.Id" />
+                            <a href="/AdminDashboardToDoList/UpdateToDoStatus/@item.Id"><i class="mdi mdi-checkbox-blank-outline"></i></a>
+                            @item.Content
+                        </label>
+                    </form>
+                </div>
+                <a href="/AdminDashboardToDoList/RemoveToDo/@item.Id" class="remove mdi mdi-close-box"></a>
+            </li>
+        }
+        else
+        {
+            <li class="completed">
+                <div class="form-check form-check-primary">
+                    <form method="post" style="margin-left:-30px">
+                        <label class="form-check-label">
+                            <input type="hidden" asp-for="@item.Id" />
+                            <a href="/AdminDashboardToDoList/UpdateToDoStatus/@item.Id"><i class="mdi mdi-checkbox-marked"></i></a>
+                            @item.Content
+                        </label>
+                    </form>
+                </div>
+                <a href="/AdminDashboardToDoList/RemoveToDo/@item.Id" class="remove mdi mdi-close-box"></a>
+            </li>
+        }
+    }
+</ul>

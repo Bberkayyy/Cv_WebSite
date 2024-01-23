@@ -9,17 +9,19 @@
             {
                 @if (item.Showcase)
                 {
-                    <div class="col-md-12" data-aos="fade-right" data-aos-delay="100">
+                    <div class="col-md-6 mb-5" data-aos="fade-right" data-aos-delay="100">
                         <div class="d-flex ms-md-3"><span><i class="fas fa-2x fa-quote-left"></i></span><span class="m-2">@item.Comment</span></div>
                         <div class="d-flex justify-content-end align-items-end">
                             <div class="text-end me-2">
                                 <div class="fw-bolder">@item.ClientName</div>
                                 <div class="text-small">@item.Title / @item.Company</div>
-                            </div><img class="me-md-3 rounded" src="@item.ImageUrl" width="96" height="96" alt="client 1" />
+                            </div><img class="me-md-3 rounded" src="/images/@item.ImageUrl" width="96" height="96" alt="client 1" />
                         </div>
                     </div>
                 }
             }
         </div>
+        <div class="dropdown-divider"></div>
+        <p class="text-center bold">Referans olmak için <a href="/Testimonial/Index/">tıklayın.</a> </p>
     </div>
 </div>

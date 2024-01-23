@@ -15,4 +15,7 @@ public interface IToDoListService
     void Update(ToDoListUpdateRequestDto ToDoListUpdateRequest);
     List<ToDoListResponseDto> GetAll();
     ToDoListResponseDto GetById(int id);
+
+    void ChangeTodoStatusToTrue(int id);
+    void ChangeTodoStatusToFalse(int id);
 }

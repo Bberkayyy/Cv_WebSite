@@ -35,6 +35,7 @@ public static class DataAccessExtensions
         services.AddScoped<IToDoListDal, ToDoListDal>();
         services.AddScoped<IAnnouncementDal, AnoouncementDal>();
         services.AddScoped<IVisitorMessageDal, VisitorMessageDal>();
+        services.AddScoped<IStatisticDal, StatisticDal>();
         return services;
     }
 }

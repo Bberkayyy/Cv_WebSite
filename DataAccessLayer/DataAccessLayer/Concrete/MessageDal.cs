@@ -12,7 +12,12 @@ namespace DataAccessLayer.Concrete;
 
 public class MessageDal : GenericRepository<BaseDbContext, Message>, IMessageDal
 {
-	public MessageDal(BaseDbContext context) : base(context)
-	{
-	}
+    public MessageDal(BaseDbContext context) : base(context)
+    {
+    }
+
+    public List<Message> GetLast5Messages()
+    {
+        return Context.Messages.OrderByDescending(x => x.Id).Take(5).ToList();
+    }
 }

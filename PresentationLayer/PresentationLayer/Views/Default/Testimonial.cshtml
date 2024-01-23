@@ -1,0 +1,100 @@
+﻿@model CreateTestimonialViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Skydash Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/skydash/vendors/feather/feather.css">
+    <link rel="stylesheet" href="~/skydash/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="~/skydash/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/skydash/css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/skydash/images/favicon.png" />
+</head>
+
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth px-0">
+                <div class="row w-100 mx-0">
+
+
+                    <div class="col-xl-12 order-xl-1">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-12 text-center">
+                                        <h1 class="mb-0">Referans Sayfası</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form method="post" asp-action="Testimonial" asp-controller="Default" enctype="multipart/form-data">
+                                    <div class="pl-lg-4">
+                                        <div class="row">
+                                            <div class="col-xl-12">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-ClientName">Adınız Soyadınız</label>
+                                                    <input class="form-control" type="text" id="input-ClientName" asp-for="ClientName" placeholder="Adınızı soyadınızı giriniz.">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-Company">Çalıştığı Şirket</label>
+                                                    <input class="form-control" type="text" id="input-Company" asp-for="Company" placeholder="Çalıştığınız şirketi giriniz">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-Title">Çalıştığı Pozisyon</label>
+                                                    <input class="form-control" type="text" id="input-Title" asp-for="Title" placeholder="Çalıştığınız pozisyonu giriniz.">
+                                                </div>
+                                                <label class="form-control-label" for="input-Picture">Fotoğrafınızı Ekleyiniz</label>
+                                                <div class="form-group">
+                                                    <input type="file" asp-for="Picture" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-Comment">Yorum</label>
+                                                    <textarea rows="10" class="form-control" type="text" id="input-Comment" asp-for="Comment" placeholder="Yorumunuzu giriniz."></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="/Default/Index/" class="btn btn-secondary mt-2">Geri Dön</a>
+                                    <button class="btn btn-primary mt-2" type="submit">Gönder</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="~/skydash/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="~/skydash/js/off-canvas.js"></script>
+    <script src="~/skydash/js/hoverable-collapse.js"></script>
+    <script src="~/skydash/js/template.js"></script>
+    <script src="~/skydash/js/settings.js"></script>
+    <script src="~/skydash/js/todolist.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>

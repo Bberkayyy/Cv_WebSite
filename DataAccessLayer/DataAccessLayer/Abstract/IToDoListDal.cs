@@ -9,4 +9,6 @@ namespace DataAccessLayer.Abstract;
 
 public interface IToDoListDal : IGenericDal<ToDoList>
 {
+    void ChangeTodoStatusToTrue(int id);
+    void ChangeTodoStatusToFalse(int id);
 }

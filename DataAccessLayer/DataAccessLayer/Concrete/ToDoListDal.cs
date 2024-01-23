@@ -15,4 +15,18 @@ public class ToDoListDal : GenericRepository<BaseDbContext, ToDoList>, IToDoList
     public ToDoListDal(BaseDbContext context) : base(context)
     {
     }
+
+    public void ChangeTodoStatusToFalse(int id)
+    {
+        var value = Context.ToDoLists.Where(x => x.Id == id).FirstOrDefault();
+        value.Status = false;
+        Context.SaveChanges();
+    }
+
+    public void ChangeTodoStatusToTrue(int id)
+    {
+        var value = Context.ToDoLists.Where(x => x.Id == id).FirstOrDefault();
+        value.Status = true;
+        Context.SaveChanges();
+    }
 }

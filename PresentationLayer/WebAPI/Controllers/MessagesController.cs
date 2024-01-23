@@ -46,4 +46,10 @@ public class MessagesController : ControllerBase
         var value = _MessageService.GetById(id);
         return Ok(value);
     }
+    [HttpGet("Last5Messages")]
+    public IActionResult GetLast5Messages()
+    {
+        var value = _MessageService.GetLast5Messages();
+        return Ok(value);
+    }
 }

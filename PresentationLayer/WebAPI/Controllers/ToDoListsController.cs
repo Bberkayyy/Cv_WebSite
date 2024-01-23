@@ -46,4 +46,16 @@ public class ToDoListsController : ControllerBase
         var value = _ToDoListService.GetById(id);
         return Ok(value);
     }
+    [HttpGet("TodoStatusToTrue")]
+    public IActionResult ChangeTodoStatusToTrue(int id)
+    {
+        _ToDoListService.ChangeTodoStatusToTrue(id);
+        return Ok("Güncelleme Başarılı.");
+    }
+    [HttpGet("TodoStatusToFalse")]
+    public IActionResult ChangeTodoStatusToFalse(int id)
+    {
+        _ToDoListService.ChangeTodoStatusToFalse(id);
+        return Ok("Güncelleme Başarılı.");
+    }
 }

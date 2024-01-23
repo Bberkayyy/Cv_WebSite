@@ -25,6 +25,16 @@ public class ToDoListService : IToDoListService
         _ToDoListDal.Add(value);
     }
 
+    public void ChangeTodoStatusToFalse(int id)
+    {
+        _ToDoListDal.ChangeTodoStatusToFalse(id);
+    }
+
+    public void ChangeTodoStatusToTrue(int id)
+    {
+        _ToDoListDal.ChangeTodoStatusToTrue(id);
+    }
+
     public List<ToDoListResponseDto> GetAll()
     {
         var values = _ToDoListDal.GetAll();

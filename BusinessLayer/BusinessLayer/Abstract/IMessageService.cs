@@ -16,4 +16,6 @@ public interface IMessageService
     void Update(MessageUpdateRequestDto MessageUpdateRequest);
     List<MessageResponseDto> GetAll();
     MessageResponseDto GetById(int id);
+
+    List<MessageResponseDto> GetLast5Messages();
 }

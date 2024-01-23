@@ -1,0 +1,53 @@
+﻿@model AdminProfileUpdateViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Şifre Güncelleme Alanı</h4>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="exampleInputName1">Adınız</label>
+                        <input type="text" asp-for="Name" class="form-control" id="exampleInputName1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Soyadınız</label>
+                        <input type="text" asp-for="Surname" class="form-control" id="exampleInputName1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Şifreniz</label>
+                        <input type="password" asp-for="Password" class="form-control" id="password" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Şifre Tekrar</label>
+                        <input type="password" asp-for="PaswordConfirm" class="form-control" id="cPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary mr-2">Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Resim Ekleme Alanı</h4>
+                <form asp-action="UpdatePicture" class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group my-3">
+                        <label>Mevcut Resim</label>
+                        <br />
+                        <img class="rounded shadow" width="150" src="~/images/@Model.PictureUrl" />
+                    </div>
+                    <div class="form-group">
+                        <input type="file" asp-for="Picture" />
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary mr-2">Ekle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
