@@ -26,6 +26,16 @@ public class MessageService : IMessageService
         _MessageDal.Add(value);
     }
 
+    public void ChangeMessageStatusToFalse(int id)
+    {
+        _MessageDal.ChangeMessageStatusToFalse(id);
+    }
+
+    public void ChangeMessageStatusToTrue(int id)
+    {
+        _MessageDal.ChangeMessageStatusToTrue(id);
+    }
+
     public List<MessageResponseDto> GetAll()
     {
         var values = _MessageDal.GetAll();

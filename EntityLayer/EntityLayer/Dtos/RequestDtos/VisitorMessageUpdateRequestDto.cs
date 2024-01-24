@@ -14,7 +14,8 @@ public record VisitorMessageUpdateRequestDto(int Id,
                                              string ReceiverName,
                                              string Subject,
                                              string MessageContent,
-                                             DateTime SendDate)
+                                             DateTime SendDate,
+                                             bool Status)
 {
     public static VisitorMessage ConvertToEntity(VisitorMessageUpdateRequestDto visitorMessageUpdateRequestDto)
     {
@@ -27,7 +28,8 @@ public record VisitorMessageUpdateRequestDto(int Id,
             ReceiverName = visitorMessageUpdateRequestDto.ReceiverName,
             Subject = visitorMessageUpdateRequestDto.Subject,
             MessageContent = visitorMessageUpdateRequestDto.MessageContent,
-            SendDate = visitorMessageUpdateRequestDto.SendDate
+            SendDate = visitorMessageUpdateRequestDto.SendDate,
+            Status = visitorMessageUpdateRequestDto.Status
         };
     }
 }

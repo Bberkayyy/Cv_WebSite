@@ -24,4 +24,6 @@ public interface IVisitorMessageService
     int GetReceiverMessageCount(string mail);
     int GetSenderMessageCount(string mail);
     List<AdminNavbarMessageImagesDto> GetLast3ReceiverMessage(string mail);
+    void ChangeStatusToTrue(int id);
+    void ChangeStatusToFalse(int id);
 }

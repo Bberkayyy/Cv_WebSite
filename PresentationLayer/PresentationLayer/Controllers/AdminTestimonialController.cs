@@ -68,7 +68,6 @@ public class AdminTestimonialController : Controller
         {
             await client.GetAsync($"https://localhost:7181/api/Testimonials/TestimonialShowcaseToFalse?id=" + id);
         }
-
         else
         {
             await client.GetAsync($"https://localhost:7181/api/Testimonials/TestimonialShowcaseToTrue?id=" + id);

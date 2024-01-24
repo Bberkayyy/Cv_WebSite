@@ -20,8 +20,9 @@
                                     <th scope="col" class="sort" data-sort="status">Gönderen Adı</th>
                                     <th scope="col" class="sort" data-sort="status">Konu</th>
                                     <th scope="col" class="sort" data-sort="status">Tarih</th>
+                                    <th scope="col" class="sort" data-sort="status">Durum</th>
                                     <th scope="col">Sil</th>
-                                    <th scope="col">*********Okundu Olarak İşaretle***********</th>
+                                    <th scope="col">Okundu Olarak İşaretle</th>
                                     <th scope="col" class="sort" data-sort="completion">Mesaja Git</th>
                                 </tr>
                             </thead>
@@ -33,9 +34,24 @@
                                         <td>@count</td>
                                         <td>@item.SenderName</td>
                                         <td>@item.Subject</td>
-                                        <td>@item.SendDate.ToShortDateString()</td>
+                                        <td>@item.SendDate.ToString("dddd, dd MMMM yyyy", System.Globalization.CultureInfo.GetCultureInfo("Tr-tr"))</td>
+                                        @if (!item.Status)
+                                        {
+                                            <td><i class="mdi mdi-check text-warning"></i> Okunmadı</td>
+                                        }
+                                        else
+                                        {
+                                            <td><i class="mdi mdi-check-all text-success"></i> Okundu</td>
+                                        }
                                         <td><a href="/AdminVisitorMessage/Delete/@item.Id" class="btn btn-outline-danger">Sil</a></td>
-                                        <td><a @* href="/AdminMessage/MessageStatus/@item.Id" *@ class="btn btn-outline-info">Okundu Olarak İşaretle</a></td>
+                                        @if (!item.Status)
+                                        {
+                                            <td><a href="/AdminVisitorMessage/MessageStatus/@item.Id" class="btn btn-outline-info">Okundu Olarak İşaretle</a></td>
+                                        }
+                                        else
+                                        {
+                                            <td><button disabled class="btn btn-outline-info">Okundu</button></td>
+                                        }
                                         <td><a href="/AdminVisitorMessage/Details/@item.Id" class="btn btn-outline-warning">Mesaja Git</a></td>
                                     </tr>
                                 }

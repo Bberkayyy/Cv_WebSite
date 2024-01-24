@@ -52,4 +52,16 @@ public class MessagesController : ControllerBase
         var value = _MessageService.GetLast5Messages();
         return Ok(value);
     }
+    [HttpGet("MessageStatusToFalse")]
+    public IActionResult ChangeMessageStatusToFalse(int id)
+    {
+        _MessageService.ChangeMessageStatusToFalse(id);
+        return Ok("Güncelleme Başarılı.");
+    }
+    [HttpGet("MessageStatusToTrue")]
+    public IActionResult ChangeMessageStatusToTrue(int id)
+    {
+        _MessageService.ChangeMessageStatusToTrue(id);
+        return Ok("Güncelleme Başarılı.");
+    }
 }

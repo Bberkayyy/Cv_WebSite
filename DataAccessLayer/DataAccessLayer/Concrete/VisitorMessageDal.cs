@@ -18,6 +18,20 @@ public class VisitorMessageDal : GenericRepository<BaseDbContext, VisitorMessage
     {
     }
 
+    public void ChangeStatusToFalse(int id)
+    {
+        var value = Context.VisitorMessages.Where(x => x.Id == id).FirstOrDefault();
+        value.Status = false;
+        Context.SaveChanges();
+    }
+
+    public void ChangeStatusToTrue(int id)
+    {
+        var value = Context.VisitorMessages.Where(x => x.Id == id).FirstOrDefault();
+        value.Status = true;
+        Context.SaveChanges();
+    }
+
     public List<AdminNavbarMessageImagesDto> GetLast3ReceiverMessage(string mail)
     {
         return Context.VisitorMessages.Join(

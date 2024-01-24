@@ -77,4 +77,14 @@ public class VisitorMessageService : IVisitorMessageService
     {
         return _visitorMessageDal.GetLast3ReceiverMessage(mail);
     }
+
+    public void ChangeStatusToTrue(int id)
+    {
+        _visitorMessageDal.ChangeStatusToTrue(id);
+    }
+
+    public void ChangeStatusToFalse(int id)
+    {
+        _visitorMessageDal.ChangeStatusToFalse(id);
+    }
 }

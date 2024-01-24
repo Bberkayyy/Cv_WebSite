@@ -58,7 +58,11 @@ public class DefaultController : Controller
         var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
         var responseMessage = await client.PostAsync("https://localhost:7181/api/Testimonials/add", content);
         if (responseMessage.IsSuccessStatusCode)
+        {
+            TempData["SuccessMessage"] = "Teşekkürler. İsteğiniz kısa bir incelemenin ardından sayfaya eklenecektir.";
             return RedirectToAction("Index");
+        }
+        TempData["UnsuccessMessage"] = "Sayfa düzeni için resim seçmeniz gerekmektedir. Lütfen sayfada görünmesi için resminizi seçiniz.";
         return View();
     }
 }

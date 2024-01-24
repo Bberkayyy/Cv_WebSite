@@ -49,4 +49,16 @@ public class AdminMessageController : Controller
         }
         return View();
     }
+    public async Task<IActionResult> MessageStatus(int id)
+    {
+        var client = _httpClientFactory.CreateClient();
+        var responseMessage = await client.GetAsync("https://localhost:7181/api/Messages/" + id);
+        var data = await responseMessage.Content.ReadAsStringAsync();
+        var updateData = JsonConvert.DeserializeObject<ResultMessageDto>(data);
+        if (updateData.Status is false)
+            await client.GetAsync("https://localhost:7181/api/Messages/MessageStatusToTrue?id=" + id);
+        else
+            await client.GetAsync("https://localhost:7181/api/Messages/MessageStatusToFalse?id=" + id);
+        return RedirectToAction("Index");
+    }
 }

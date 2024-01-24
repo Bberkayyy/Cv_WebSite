@@ -16,6 +16,20 @@ public class MessageDal : GenericRepository<BaseDbContext, Message>, IMessageDal
     {
     }
 
+    public void ChangeMessageStatusToFalse(int id)
+    {
+        var value = Context.Messages.Where(x => x.Id == id).FirstOrDefault();
+        value.Status = false;
+        Context.SaveChanges();
+    }
+
+    public void ChangeMessageStatusToTrue(int id)
+    {
+        var value = Context.Messages.Where(x => x.Id == id).FirstOrDefault();
+        value.Status = true;
+        Context.SaveChanges();
+    }
+
     public List<Message> GetLast5Messages()
     {
         return Context.Messages.OrderByDescending(x => x.Id).Take(5).ToList();

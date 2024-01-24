@@ -93,4 +93,17 @@ public class AdminVisitorMessageController : Controller
             return RedirectToAction("Sendbox");
         return View();
     }
+    public async Task<IActionResult> MessageStatus(int id)
+    {
+        var client = _httpClientFactory.CreateClient();
+        var responseMessage = await client.GetAsync("https://localhost:7181/api/VisitorMessages/" + id);
+        var data = await responseMessage.Content.ReadAsStringAsync();
+        var updateData = JsonConvert.DeserializeObject<ResultAdminVisitorMessageDto>(data);
+        if (updateData.Status is false)
+            await client.GetAsync("https://localhost:7181/api/VisitorMessages/ChangeStatusToTrue?id=" + id);
+        else
+            await client.GetAsync("https://localhost:7181/api/VisitorMessages/ChangeStatusToFalse?id=" + id);
+        return RedirectToAction("Inbox");
+
+    }
 }

@@ -18,4 +18,6 @@ public interface IMessageService
     MessageResponseDto GetById(int id);
 
     List<MessageResponseDto> GetLast5Messages();
+    void ChangeMessageStatusToFalse(int id);
+    void ChangeMessageStatusToTrue(int id);
 }

@@ -14,7 +14,8 @@ public record VisitorMessageResponseDto(int Id,
                                         string ReceiverName,
                                         string Subject,
                                         string MessageContent,
-                                        DateTime SendDate)
+                                        DateTime SendDate,
+                                        bool Status)
 {
     public static VisitorMessageResponseDto ConvertToResponse(VisitorMessage visitorMessage)
     {
@@ -25,6 +26,7 @@ public record VisitorMessageResponseDto(int Id,
                                              ReceiverName: visitorMessage.ReceiverName,
                                              Subject: visitorMessage.Subject,
                                              MessageContent: visitorMessage.MessageContent,
-                                             SendDate: visitorMessage.SendDate);
+                                             SendDate: visitorMessage.SendDate,
+                                             Status: visitorMessage.Status);
     }
 }

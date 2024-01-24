@@ -11,7 +11,12 @@
 <body id="top">
 
     @await Component.InvokeAsync("_NavbarComponentPartial")
-
+    @if (TempData["SuccessMessage"] is not null)
+    {
+        <div class="alert alert-success text-center">
+            <strong>@TempData["SuccessMessage"]</strong>
+        </div>
+    }
     <div class="page-content">
         <div id="content">
             @await Component.InvokeAsync("_FeatureComponentPartial")

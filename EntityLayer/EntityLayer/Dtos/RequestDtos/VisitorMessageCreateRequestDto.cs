@@ -13,7 +13,8 @@ public record VisitorMessageCreateRequestDto(string SenderMail,
                                              string ReceiverName,
                                              string Subject,
                                              string MessageContent,
-                                             DateTime SendDate)
+                                             DateTime SendDate,
+                                             bool Status)
 {
     public static VisitorMessage ConvertToEntity(VisitorMessageCreateRequestDto visitorMessageCreateRequestDto)
     {
@@ -25,7 +26,8 @@ public record VisitorMessageCreateRequestDto(string SenderMail,
             ReceiverName = visitorMessageCreateRequestDto.ReceiverName,
             Subject = visitorMessageCreateRequestDto.Subject,
             MessageContent = visitorMessageCreateRequestDto.MessageContent,
-            SendDate = visitorMessageCreateRequestDto.SendDate
+            SendDate = visitorMessageCreateRequestDto.SendDate,
+            Status = visitorMessageCreateRequestDto.Status
         };
     }
 }

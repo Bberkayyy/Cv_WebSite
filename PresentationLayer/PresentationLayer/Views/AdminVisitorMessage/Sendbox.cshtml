@@ -31,7 +31,7 @@
                                         <td>@count</td>
                                         <td>@item.ReceiverName</td>
                                         <td>@item.Subject</td>
-                                        <td>@item.SendDate.ToShortDateString()</td>
+                                        <td>@item.SendDate.ToString("dddd, dd MMMM yyyy", System.Globalization.CultureInfo.GetCultureInfo("Tr-tr"))</td>
                                         <td><a href="/AdminVisitorMessage/Delete/@item.Id" class="btn btn-outline-danger">Sil</a></td>
                                         <td><a href="/AdminVisitorMessage/Details/@item.Id" class="btn btn-outline-warning">Mesaja Git</a></td>
                                     </tr>

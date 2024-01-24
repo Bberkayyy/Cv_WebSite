@@ -10,4 +10,6 @@ namespace DataAccessLayer.Abstract;
 public interface IMessageDal : IGenericDal<Message>
 {
     List<Message> GetLast5Messages();
+    void ChangeMessageStatusToTrue(int id);
+    void ChangeMessageStatusToFalse(int id);
 }

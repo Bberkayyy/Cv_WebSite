@@ -49,26 +49,32 @@
                                                     <input class="form-control" type="text" id="input-ClientName" asp-for="ClientName" placeholder="Adınızı soyadınızı giriniz.">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="form-control-label" for="input-Company">Çalıştığı Şirket</label>
+                                                    <label class="form-control-label" for="input-Company">Çalıştığınız Şirket</label>
                                                     <input class="form-control" type="text" id="input-Company" asp-for="Company" placeholder="Çalıştığınız şirketi giriniz">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="form-control-label" for="input-Title">Çalıştığı Pozisyon</label>
+                                                    <label class="form-control-label" for="input-Title">Çalıştığınız Pozisyon</label>
                                                     <input class="form-control" type="text" id="input-Title" asp-for="Title" placeholder="Çalıştığınız pozisyonu giriniz.">
                                                 </div>
                                                 <label class="form-control-label" for="input-Picture">Fotoğrafınızı Ekleyiniz</label>
                                                 <div class="form-group">
                                                     <input type="file" asp-for="Picture" />
+                                                    @if (TempData["UnsuccessMessage"] is not null)
+                                                    {
+                                                        <div class="alert alert-danger">
+                                                            <strong>@TempData["UnsuccessMessage"]</strong>
+                                                        </div>
+                                                    }
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="form-control-label" for="input-Comment">Yorum</label>
+                                                    <label class="form-control-label" for="input-Comment">Yorumunuz</label>
                                                     <textarea rows="10" class="form-control" type="text" id="input-Comment" asp-for="Comment" placeholder="Yorumunuzu giriniz."></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <a href="/Default/Index/" class="btn btn-secondary mt-2">Geri Dön</a>
-                                    <button class="btn btn-primary mt-2" type="submit">Gönder</button>
+                                    <button id="submitButton" class="btn btn-primary mt-2" onclick="imageUrlRequired()" type="submit">Gönder</button>
                                 </form>
                             </div>
                         </div>

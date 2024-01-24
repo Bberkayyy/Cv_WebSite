@@ -76,4 +76,16 @@ public class VisitorMessagesController : ControllerBase
         var value = _VisitorMessageService.GetLast3ReceiverMessage(mail);
         return Ok(value);
     }
+    [HttpGet("ChangeStatusToFalse")]
+    public IActionResult ChangeStatusToFalse(int id)
+    {
+        _VisitorMessageService.ChangeStatusToFalse(id);
+        return Ok("Güncelleme Başarılı.");
+    }
+    [HttpGet("ChangeStatusToTrue")]
+    public IActionResult ChangeStatusToTrue(int id)
+    {
+        _VisitorMessageService.ChangeStatusToTrue(id);
+        return Ok("Güncelleme Başarılı.");
+    }
 }
