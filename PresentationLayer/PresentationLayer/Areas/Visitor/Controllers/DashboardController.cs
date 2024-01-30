@@ -11,7 +11,7 @@ namespace WebUI.Areas.Visitor.Controllers;
 
 [Area("Visitor")]
 [Route("Visitor/[controller]")]
-[Authorize]
+[Authorize(Roles = "Visitor")]
 public class DashboardController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;

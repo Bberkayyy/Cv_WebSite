@@ -5,7 +5,8 @@ using Newtonsoft.Json;
 using System.Text;
 
 namespace WebUI.Controllers;
-[Authorize]
+
+[Authorize(Roles = "Admin")]
 public class AdminPortfolioController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;

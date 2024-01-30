@@ -32,7 +32,11 @@ public class LoginController : Controller
             var result = await _signInManager.PasswordSignInAsync(loginViewModel.Username, loginViewModel.Password, true, true);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Dashboard");
+                if (User.IsInRole("Admin"))
+                {
+                    return RedirectToAction("Index", "AdminDashboard");
+                }
+                return RedirectToAction("Index", "Default");
             }
             else
             {

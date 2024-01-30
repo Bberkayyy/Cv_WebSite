@@ -7,12 +7,12 @@ namespace WebUI.Areas.Visitor.Controllers;
 
 [Area("Visitor")]
 [Route("Visitor/[controller]")]
-[Authorize]
-public class DefaultController : Controller
+[Authorize(Roles ="Visitor")]
+public class AnnouncementController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;
 
-    public DefaultController(IHttpClientFactory httpClientFactory)
+    public AnnouncementController(IHttpClientFactory httpClientFactory)
     {
         _httpClientFactory = httpClientFactory;
     }

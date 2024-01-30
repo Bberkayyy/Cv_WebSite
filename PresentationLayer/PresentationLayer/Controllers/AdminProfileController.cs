@@ -1,10 +1,12 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebUI.Models;
 
 namespace WebUI.Controllers;
 
+[Authorize(Roles = "Admin")]
 public class AdminProfileController : Controller
 {
     private readonly UserManager<VisitorUser> _userManager;

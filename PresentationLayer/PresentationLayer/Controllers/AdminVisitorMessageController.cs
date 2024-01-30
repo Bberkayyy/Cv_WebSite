@@ -8,7 +8,8 @@ using Newtonsoft.Json;
 using System.Text;
 
 namespace WebUI.Controllers;
-[Authorize]
+
+[Authorize(Roles = "Admin")]
 public class AdminVisitorMessageController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;

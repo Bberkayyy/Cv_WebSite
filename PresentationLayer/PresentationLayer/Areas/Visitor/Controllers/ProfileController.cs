@@ -9,7 +9,7 @@ namespace WebUI.Areas.Visitor.Controllers;
 
 [Area("Visitor")]
 [Route("Visitor/[controller]")]
-[Authorize]
+[Authorize(Roles = "Visitor")]
 public class ProfileController : Controller
 {
     private readonly UserManager<VisitorUser> _userManager;
@@ -38,11 +38,14 @@ public class ProfileController : Controller
         var value = await _userManager.FindByNameAsync(User.Identity.Name);
         value.Name = updateViewModel.Name;
         value.Surname = updateViewModel.Surname;
-        value.PasswordHash = _userManager.PasswordHasher.HashPassword(value, updateViewModel.Password);
-        var result = await _userManager.UpdateAsync(value);
-        if (result.Succeeded)
+        if (updateViewModel.Password == updateViewModel.PaswordConfirm)
         {
-            return RedirectToAction("Index", "Login", new { area = "Visitor" });
+            value.PasswordHash = _userManager.PasswordHasher.HashPassword(value, updateViewModel.Password);
+            var result = await _userManager.UpdateAsync(value);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "Login", new { area = "Visitor" });
+            }
         }
         return View(value);
     }

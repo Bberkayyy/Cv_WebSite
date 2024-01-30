@@ -6,7 +6,7 @@ using System.Text;
 
 namespace WebUI.Controllers;
 
-[Authorize]
+[Authorize(Roles ="Admin")]
 public class AdminAboutController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;

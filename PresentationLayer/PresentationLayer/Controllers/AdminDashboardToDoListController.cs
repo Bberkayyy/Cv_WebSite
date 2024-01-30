@@ -1,11 +1,13 @@
 ﻿using Dtos.TestimonialDtos;
 using Dtos.ToDoListDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace WebUI.Controllers;
 
+[Authorize(Roles = "Admin")]
 public class AdminDashboardToDoListController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;

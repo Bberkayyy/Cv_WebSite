@@ -41,7 +41,11 @@ public class RegisterController : Controller
             var result = await _userManager.CreateAsync(visitorUser, registerViewModel.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Login", new { area = "Visitor" });
+                var role = await _userManager.AddToRoleAsync(visitorUser, "Visitor");
+                if (role.Succeeded)
+                {
+                    return RedirectToAction("Index", "Login", new { area = "Visitor" });
+                }
             }
             else
             {

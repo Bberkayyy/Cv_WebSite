@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace WebUI.Controllers;
-[Authorize]
+
+[Authorize(Roles = "Admin")]
 public class AdminMessageController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;

@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebUI.Controllers;
-[Authorize]
+
+[Authorize(Roles = "Admin")]
 public class AdminDashboardController : Controller
 {
     public IActionResult Index()

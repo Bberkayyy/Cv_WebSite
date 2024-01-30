@@ -1,6 +1,7 @@
 using DataAccessLayer.BaseContext;
 using EntityLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,9 +9,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<BaseDbContext>(c => c.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection")));
-builder.Services.AddIdentity<VisitorUser, VisitorRole>().AddEntityFrameworkStores<BaseDbContext>();
+builder.Services.AddIdentity<VisitorUser, VisitorRole>(opt =>
+{
+    var charset = opt.User.AllowedUserNameCharacters + "çÇðÐýIöÖþÞüÜ";
+    opt.User.AllowedUserNameCharacters = charset;
+}).AddEntityFrameworkStores<BaseDbContext>();
 
 builder.Services.AddHttpClient();
+builder.Services.ConfigureApplicationCookie(opt =>
+{
+    opt.AccessDeniedPath = new PathString("/ErrorPages/Error404/");
+    opt.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+});
 
 var app = builder.Build();
 
