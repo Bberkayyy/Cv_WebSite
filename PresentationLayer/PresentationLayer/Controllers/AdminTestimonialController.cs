@@ -1,4 +1,5 @@
-﻿using Dtos.TestimonialDtos;
+﻿using Dtos.PortfolioDtos;
+using Dtos.TestimonialDtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -41,11 +42,22 @@ public class AdminTestimonialController : Controller
     public async Task<IActionResult> CreateTestimonial(CreateTestimonialDto createTestimonialDto)
     {
         var client = _httpClientFactory.CreateClient();
+        if (createTestimonialDto.Picture is not null)
+        {
+            var resource = Directory.GetCurrentDirectory();
+            var extension = Path.GetExtension(createTestimonialDto.Picture.FileName);
+            var imageName = Guid.NewGuid() + extension;
+            var saveLocation = resource + "/wwwroot/images/" + imageName;
+            var stream = new FileStream(saveLocation, FileMode.Create);
+            await createTestimonialDto.Picture.CopyToAsync(stream);
+            createTestimonialDto.ImageUrl = imageName;
+        }
         var jsonData = JsonConvert.SerializeObject(createTestimonialDto);
         StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
         var responseMessage = await client.PostAsync("https://localhost:7181/api/Testimonials/add", stringContent);
         if (responseMessage.IsSuccessStatusCode)
             return RedirectToAction("Index");
+        TempData["UnsuccessMessage"] = "Sayfa düzeni için resim eklemeniz gerekmektedir. Lütfen sayfada görünmesi resim ekleyiniz.";
         return View();
     }
 

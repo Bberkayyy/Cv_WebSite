@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Dtos.RequestDtos;
 
-public record PortfolioCreateRequestDto(string Platform,
-                                        string ProjectName,
+public record PortfolioCreateRequestDto(string ProjectName,
                                         string ProjectUrl,
                                         string ProjectImageUrl,
                                         string ProjectBigImageUrl)
@@ -17,7 +16,6 @@ public record PortfolioCreateRequestDto(string Platform,
     {
         return new Portfolio
         {
-            Platform = request.Platform,
             ProjectName = request.ProjectName,
             ProjectUrl = request.ProjectUrl,
             ProjectImageUrl = request.ProjectImageUrl,

@@ -19,7 +19,7 @@ builder.Services.AddHttpClient();
 builder.Services.ConfigureApplicationCookie(opt =>
 {
     opt.AccessDeniedPath = new PathString("/ErrorPages/Error404/");
-    opt.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+    opt.ExpireTimeSpan = TimeSpan.FromMinutes(60);
 });
 
 var app = builder.Build();

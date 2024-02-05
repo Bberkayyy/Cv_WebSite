@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,4 +15,5 @@ public class CreateTestimonialDto
     public string ImageUrl { get; set; }
     public string Title { get; set; }
     public bool Showcase { get; set; }
+    public IFormFile Picture { get; set; }
 }

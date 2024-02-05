@@ -40,11 +40,23 @@ public class AdminPortfolioController : Controller
     public async Task<IActionResult> CreatePortfolio(CreatePortfolioDto createPortfolioDto)
     {
         var client = _httpClientFactory.CreateClient();
+        if (createPortfolioDto.Picture is not null)
+        {
+            var resource = Directory.GetCurrentDirectory();
+            var extension = Path.GetExtension(createPortfolioDto.Picture.FileName);
+            var imageName = Guid.NewGuid() + extension;
+            var saveLocation = resource + "/wwwroot/projectImages/" + imageName;
+            var stream = new FileStream(saveLocation, FileMode.Create);
+            await createPortfolioDto.Picture.CopyToAsync(stream);
+            createPortfolioDto.ProjectImageUrl = imageName;
+            createPortfolioDto.ProjectBigImageUrl = imageName;
+        }
         var jsonData = JsonConvert.SerializeObject(createPortfolioDto);
         StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
         var responseMessage = await client.PostAsync("https://localhost:7181/api/Portfolios/add", stringContent);
         if (responseMessage.IsSuccessStatusCode)
             return RedirectToAction("Index");
+        TempData["UnsuccessMessage"] = "Sayfa düzeni için proje resmi eklemeniz gerekmektedir. Lütfen sayfada görünmesi için proje resmi ekleyiniz.";
         return View();
     }
     [HttpGet]

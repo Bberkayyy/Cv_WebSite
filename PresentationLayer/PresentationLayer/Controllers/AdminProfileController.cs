@@ -36,13 +36,21 @@ public class AdminProfileController : Controller
         var value = await _userManager.FindByNameAsync(User.Identity.Name);
         value.Name = updateViewModel.Name;
         value.Surname = updateViewModel.Surname;
-        value.PasswordHash = _userManager.PasswordHasher.HashPassword(value, updateViewModel.Password);
-        var result = await _userManager.UpdateAsync(value);
-        if (result.Succeeded)
+        if (updateViewModel.Password == updateViewModel.PaswordConfirm)
         {
-            return RedirectToAction("Index", "Login", new { area = "Visitor" });
+            value.PasswordHash = _userManager.PasswordHasher.HashPassword(value, updateViewModel.Password);
+            var result = await _userManager.UpdateAsync(value);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "Login", new { area = "Visitor" });
+            }
         }
-        return View(value);
+        else
+        {
+            updateViewModel.PictureUrl = value.ImageUrl;
+            ViewBag.Error = "Girilen şifreler aynı olmalıdır!";
+        }
+        return View(updateViewModel);
     }
     [HttpPost]
     public async Task<IActionResult> UpdatePicture(IFormFile picture)

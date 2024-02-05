@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 namespace EntityLayer.Dtos.ResponseDtos;
 
 public record PortfolioResponseDto(int Id,
-                                   string Platform,
                                    string ProjectName,
                                    string ProjectImageUrl,
                                    string ProjectUrl,
@@ -18,7 +17,6 @@ public record PortfolioResponseDto(int Id,
     {
         return new PortfolioResponseDto(
             Id: Portfolio.Id,
-            Platform: Portfolio.Platform,
             ProjectName: Portfolio.ProjectName,
             ProjectUrl: Portfolio.ProjectUrl,
             ProjectImageUrl: Portfolio.ProjectImageUrl,

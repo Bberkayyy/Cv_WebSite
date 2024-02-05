@@ -9,14 +9,14 @@
             @foreach (var item in Model)
             {
                 <div class="grid-item">
-                    <a href="https://dribbble.com">
+                    <a href="@item.ProjectUrl">
                         <figure class="portfolio-item">
-                            <img src="@item.ProjectImageUrl" data-bp="@item.ProjectBigImageUrl" />
+                            <img src="~/projectImages/@item.ProjectImageUrl" data-bp="/projectImages/@item.ProjectBigImageUrl" />
                             <figcaption>
                                 <h4 class="h5 mb-0">@item.ProjectName</h4>
                                 <div>@item.ProjectUrl</div>
                             </figcaption>
-                        </figure>  
+                        </figure>
                     </a>
                 </div>
             }

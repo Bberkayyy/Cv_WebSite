@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="card-body">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <div class="pl-lg-4">
                     <div class="row">
                         <div class="col-xl-12">
@@ -28,10 +28,17 @@
                             <div class="form-group">
                                 <label class="form-control-label" for="input-Title">Çalıştığı Pozisyon</label>
                                 <input class="form-control" type="text" id="input-Title" asp-for="Title" placeholder="Çalıştığı pozisyonu giriniz.">
-                            </div>                      
+                            </div>
                             <div class="form-group">
-                                <label class="form-control-label" for="input-ImageUrl">Resim Url</label>
-                                <input class="form-control" type="text" id="input-ImageUrl" asp-for="ImageUrl" placeholder="Resim url giriniz.">
+                                <label class="form-control-label" for="input-Picture">Referans Fotoğrafını Ekleyiniz</label>
+                                <br />
+                                <input type="file" asp-for="Picture" />
+                                @if (TempData["UnsuccessMessage"] is not null)
+                                {
+                                    <div class="alert alert-danger">
+                                        <strong>@TempData["UnsuccessMessage"]</strong>
+                                    </div>
+                                }
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label" for="input-Comment">Yorum</label>

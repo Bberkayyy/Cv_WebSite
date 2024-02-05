@@ -17,7 +17,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th scope="col" class="sort" data-sort="name">Platform - Proje Adı</th>
+                                    <th scope="col" class="sort" data-sort="name">Proje Adı</th>
                                     <th scope="col" class="sort" data-sort="status">Proje Linki</th>
                                     <th scope="col" class="sort" data-sort="status">Proje Resim Url 1</th>
                                     <th scope="col" class="sort" data-sort="status">Proje Resim Url 2</th>
@@ -33,7 +33,7 @@
                                         <td>@count</td>
                                         <th>
                                             <div class="media align-items-center">
-                                                <img src="@item.Platform" class="avatar rounded-circle mr-3" />
+                                                <img src="~/projectImages/@item.ProjectImageUrl" class="avatar rounded-circle mr-3" />
                                                 <div class="media-boy">
                                                     <span class="name mb-0 text-sm">@item.ProjectName</span>
                                                 </div>
