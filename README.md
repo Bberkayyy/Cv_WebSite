@@ -1,6 +1,6 @@
 # Cv Portfolio Web Site
 ## Projenin Amacı
-Proje kişisel bir cv sitesidir. Kişisel özgeçmişinizi entegre edebilir ve kendi vd siteniz olarak kullanabilirsiniz. Sitede cv sahibine mesaj gönderilebileck bir iletişim alanı bulunmaktadır. Proje Default, Ziyaretçi ve Admin panellerine sahiptir.
+Proje kişisel bir cv sitesidir. Kişisel özgeçmişinizi entegre edebilir ve kendi cv siteniz olarak kullanabilirsiniz. Sitede cv sahibine mesaj gönderilebileck bir iletişim alanı bulunmaktadır. Proje Default, Ziyaretçi ve Admin panellerine sahiptir.
 Proje N Tier Architecture ve repository design pattern ile kodlanmıştır. Entity framework core ve code first yaklaşımı ile SQL server veri tabanını destekler. 
 ### Kullanılan Teknolojiler
 - Asp.Net Core 8.0 
