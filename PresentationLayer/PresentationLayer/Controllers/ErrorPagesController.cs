@@ -10,4 +10,8 @@ public class ErrorPagesController : Controller
     {
         return View();
     }
+    public IActionResult Error403()
+    {
+        return View();
+    }
 }

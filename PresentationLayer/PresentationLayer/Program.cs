@@ -13,12 +13,15 @@ builder.Services.AddIdentity<VisitorUser, VisitorRole>(opt =>
 {
     var charset = opt.User.AllowedUserNameCharacters + "çÇðÐýIöÖþÞüÜ";
     opt.User.AllowedUserNameCharacters = charset;
+
+    opt.User.RequireUniqueEmail = true;
+
 }).AddEntityFrameworkStores<BaseDbContext>();
 
 builder.Services.AddHttpClient();
 builder.Services.ConfigureApplicationCookie(opt =>
 {
-    opt.AccessDeniedPath = new PathString("/ErrorPages/Error404/");
+    opt.AccessDeniedPath = new PathString("/ErrorPages/Error403/");
     opt.ExpireTimeSpan = TimeSpan.FromMinutes(60);
 });
 

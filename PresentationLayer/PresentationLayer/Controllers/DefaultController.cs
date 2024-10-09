@@ -54,6 +54,10 @@ public class DefaultController : Controller
             await viewModel.Picture.CopyToAsync(stream);
             viewModel.ImageUrl = imageName;
         }
+        else
+        {
+            TempData["UnsuccessMessage"] = "Sayfa düzeni için resim seçmeniz gerekmektedir. Lütfen sayfada görünmesi için resminizi seçiniz.";
+        }
         var jsonData = JsonConvert.SerializeObject(viewModel);
         var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
         var responseMessage = await client.PostAsync("https://localhost:7181/api/Testimonials/add", content);
@@ -62,7 +66,6 @@ public class DefaultController : Controller
             TempData["SuccessMessage"] = "Teşekkürler. İsteğiniz kısa bir incelemenin ardından sayfaya eklenecektir.";
             return RedirectToAction("Index");
         }
-        TempData["UnsuccessMessage"] = "Sayfa düzeni için resim seçmeniz gerekmektedir. Lütfen sayfada görünmesi için resminizi seçiniz.";
         return View();
     }
 }

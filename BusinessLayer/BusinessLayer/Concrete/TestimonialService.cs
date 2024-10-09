@@ -1,8 +1,10 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using EntityLayer.Dtos.RequestDtos;
 using EntityLayer.Dtos.ResponseDtos;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ namespace BusinessLayer.Concrete;
 public class TestimonialService : ITestimonialService
 {
     private readonly ITestimonialDal _TestimonialDal;
+    //private readonly IValidator<Testimonial> _validator;
 
     public TestimonialService(ITestimonialDal TestimonialDal)
     {
